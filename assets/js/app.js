@@ -1,6 +1,5 @@
 import "phoenix_html"
-import { connect } from 'react-redux';
-import React, {PropTypes} from "react"
+import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from "axios"
