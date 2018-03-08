@@ -30,35 +30,18 @@ class Home extends React.Component {
 }
 
 class NewBook extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      title: '',
-      author: '',
-      genre: '',
-      description: ''
-    };
-  }
-
   handleSubmit(event) {
     event.preventDefault();
-    this.state = {
-      title: this.refs.title.value,
-      author: this.refs.author.value,
-      genre: this.refs.genre.value,
-      description: this.refs.description.value
-    };
-    console.log(this.state);
     axios({
       method: 'post',
       headers: {"Content-Type": "application/json"},
       url: '/api/books',
       data: {
         book: {
-          title: this.state.title,
-          author: this.state.author,
-          genre: this.state.genre,
-          description: this.state.description
+          title: this.refs.title.value,
+          author: this.refs.author.value,
+          genre: this.refs.genre.value,
+          description: this.refs.description.value
         }
       }
     })
