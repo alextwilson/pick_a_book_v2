@@ -52,7 +52,7 @@ class NewBook extends React.Component {
     axios({
       method: 'post',
       headers: {"Content-Type": "application/json"},
-      url: 'http://localhost:4000/api/books',
+      url: '/api/books',
       data: {
         book: {
           title: this.state.title,
