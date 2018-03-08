@@ -50,16 +50,19 @@ class NewBook extends React.Component {
       description: this.refs.description.value
     };
     console.log(this.state);
-    // axios.post('http://localhost:4000/api/books', {
-    // headers: {"Content-Type": "application/json"},
-    // data: {
-    //   books: {
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     genre: this.state.genre,
-    //     description: this.state.description
-    //   }
-    // }
+    axios({
+      method: 'post',
+      headers: {"Content-Type": "application/json"},
+      url: 'http://localhost:4000/api/books',
+      data: {
+        book: {
+          title: this.state.title,
+          author: this.state.author,
+          genre: this.state.genre,
+          description: this.state.description
+        }
+      }
+    })
   }
 
   render() {
@@ -89,5 +92,5 @@ class NewBook extends React.Component {
 
 ReactDOM.render(
   <HelloReact/>,
-  document.getElementById("hello-react")
+  document.getElementById("main")
 )
