@@ -19,9 +19,9 @@ defmodule PickABookWeb.Router do
     get "/", PageController, :index
   end
 
-  scope "/api", PickABookWeb do
+  scope "/api/v1", PickABookWeb do
     pipe_through :api
-    resources "/users", UserController, except: [:new, :edit]
+    resources "/users", UserController, only: [:create, :show]
     # resources "/books", BookController, except: [:new, :edit]
     get "/books", BookController, :index
     post "/books", BookController, :create
