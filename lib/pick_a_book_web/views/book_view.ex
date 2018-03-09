@@ -32,6 +32,7 @@ defmodule PickABookWeb.BookView do
 
   def books_json(book) do
     %{
+      id: book.id,
       title: book.title,
       description: book.description,
       author: book.author,

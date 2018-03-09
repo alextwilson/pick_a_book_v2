@@ -73,17 +73,15 @@ class NewBook extends React.Component {
   }
 }
 
-class BookCard extends React.Component {
+class BookListing extends React.Component {
   render() {
     return (
       <div className="card">
         <div className="card-content">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4">{this.props.title}</p>
-              <p className="title is-4">{this.props.genre}</p>
-              <p className="subtitle is-6">{this.props.description}</p>
-              <p className="subtitle is-6">By {this.props.author}</p>
+              <strong className="title">{this.props.title}</strong>
+              <i className="author"> By {this.props.author}</i>
             </div>
           </div>
         </div>
@@ -110,49 +108,22 @@ class Books extends React.Component {
 
   render() {
     const posts = this.state.books.map((book, index) =>
-      <BookCard
+      <BookListing
         key = { index }
+        id = { book.id }
         title = { book.title }
         description = { book.description }
         genre = { book.genre }
         author = { book.author }
       />
     );
+    console.log(posts)
+
     return (
       <div>
-        <div className="is-primary is-large"
-          style = {{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            padding: "10px 15px",
-            background: "#00D1B2"
-          }}
-        >
-          <Link
-            to="/books/new"
-            style = {{ color: "white" }}
-          >
-          Add a book
-          </Link>
-        </div>
-        <div className="is-primary is-large"
-          style = {{
-            position: "absolute",
-            top: "80px",
-            right: "10px",
-            padding: "10px 15px",
-            background: "#00D1B2"
-          }}
-        >
-          <Link
-            to="/update"
-            style = {{ color: "white" }}
-          >
-          Edit Book Post
-          </Link>
-        </div>
-      {posts}
+        <Link to="/">Home</Link>
+        <Link to="/books/new">Add a book</Link>
+        {posts}
       </div>
     )
   }
