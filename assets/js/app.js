@@ -136,7 +136,7 @@ class Book extends React.Component {
     this.state = { book: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`/api/books/${this.props.match.params.id}`)
       .then(response => {
         this.setState({ book: response.data.book });
