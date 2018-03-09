@@ -117,7 +117,6 @@ class Books extends React.Component {
         author = { book.author }
       />
     );
-    console.log(posts)
 
     return (
       <div>
