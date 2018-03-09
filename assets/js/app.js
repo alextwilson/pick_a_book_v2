@@ -131,14 +131,32 @@ class Books extends React.Component {
 }
 
 class Book extends React.Component {
+  constructor() {
+    super();
+    this.state = { book: [] };
+  }
 
+  componentWillMount() {
+    axios.get(`/api/books/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ book: response.data.book });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   render() {
-    console.log(this.props.match.params.id)
     return (
 
       <div>
-        <h1>hello</h1>
+        <p>
+          <Link to="/">Home</Link> | <Link to="/books">All books</Link> | <Link to="/books/new">Add a book</Link>
+        </p>
+        <p><strong>Title:</strong> {this.state.book.title}</p>
+        <p><strong>Author:</strong> {this.state.book.author}</p>
+        <p><strong>Genre:</strong> {this.state.book.genre}</p>
+        <p><strong>Description:</strong> {this.state.book.description}</p>
       </div>
     )
   }
