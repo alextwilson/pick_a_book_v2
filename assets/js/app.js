@@ -166,7 +166,5 @@ class Books extends React.Component {
 
 
 
-ReactDOM.render(
-  <HelloReact/>,
-  document.getElementById("main")
-)
+  module.exports = HelloReact;
+  // document.getElementById("main") This needs to be refactored out in order to render

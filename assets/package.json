@@ -6,14 +6,12 @@
     "watch": "brunch watch --stdin",
     "test": "jest"
   },
-
   "jest": {
     "verbose": true,
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
   },
-
   "dependencies": {
     "axios": "^0.18.0",
     "babel-jest": "^22.4.1",

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewBook from './app.jsx';
+import HelloReact from './app';
 
-describe('NewBook', () => {
+describe('HelloReact', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<NewBook />, div);
+        ReactDOM.render(<HelloReact />, div);
     });
 });
