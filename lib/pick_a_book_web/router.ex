@@ -24,10 +24,10 @@ defmodule PickABookWeb.Router do
     resources "/users", UserController, except: [:new, :edit]
     # resources "/books", BookController, except: [:new, :edit]
     get "/books", BookController, :index
-  post "/books", BookController, :create
-  get "/books/:id", BookController, :show
-  delete "/books/:id", BookController, :delete
-  put "/books/:id", BookController, :update
+    post "/books", BookController, :create
+    get "/books/:id", BookController, :show
+    delete "/books/:id", BookController, :delete
+    put "/books/:id", BookController, :update
   end
 
 
