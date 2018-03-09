@@ -11,6 +11,7 @@ class HelloReact extends React.Component {
       <div>
         <Route exact path="/" component={Home}/>
         <Route exact path="/books" component={Books}/>
+        <Route exact path="/books/:id" component={Book}/>
         <Route exact path="/books/new" component={NewBook}/>
       </div>
       </Router>
@@ -82,6 +83,7 @@ class BookListing extends React.Component {
             <div className="media-content">
               <strong className="title">{this.props.title}</strong>
               <i className="author"> By {this.props.author}</i>
+              <Link to={ `/books/${this.props.id}` }>Show</Link>
             </div>
           </div>
         </div>
@@ -123,6 +125,20 @@ class Books extends React.Component {
         <Link to="/">Home</Link>
         <Link to="/books/new">Add a book</Link>
         {posts}
+      </div>
+    )
+  }
+}
+
+class Book extends React.Component {
+
+
+  render() {
+    console.log(this.props.match.params.id)
+    return (
+
+      <div>
+        <h1>hello</h1>
       </div>
     )
   }
