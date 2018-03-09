@@ -10,8 +10,8 @@ class HelloReact extends React.Component {
       <Router>
       <div>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/" component={Books}/>
-        <Route path="/books/new" component={NewBook}/>
+        <Route exact path="/books" component={Books}/>
+        <Route exact path="/books/new" component={NewBook}/>
       </div>
       </Router>
     )
@@ -23,6 +23,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Welcome to PickABook!</h1>
+        <Link to="/books">All books</Link>
         <Link to="/books/new">Add a book</Link>
       </div>
     )
@@ -72,11 +73,7 @@ class NewBook extends React.Component {
   }
 }
 
-
-
-
 class BookCard extends React.Component {
-
   render() {
     return (
       <div className="card">
@@ -94,8 +91,6 @@ class BookCard extends React.Component {
     )
   }
 }
-
-
 
 class Books extends React.Component {
   constructor() {
@@ -162,9 +157,6 @@ class Books extends React.Component {
     )
   }
 }
-
-
-
 
 ReactDOM.render(
   <HelloReact/>,
