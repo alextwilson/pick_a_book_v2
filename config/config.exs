@@ -25,7 +25,7 @@ config :logger, :console,
   # Guardian config
 config :myApi, MyApi.Guardian,
        issuer: "myApi",
-       secret_key: "Secret key. Use `mix guardian.gen.secret` to generate one"
+       secret_key: "YhiX6D0ameHqdTPm0Ymg9Uo2xIo9S4P8Cnyzbbt770+KECc2JAfIs7a4LGSEOsxG"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
