@@ -9,8 +9,15 @@ import NewBook from '../js/components/newBook';
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe('NewBook', () => {
-  it('shows the message: Add a book', () => {
-    const page = mount(<NewBook/>);
-    expect(page.text()).toMatch('Add a book');
+  describe('render', () => {
+    it('shows the message: Add a book', () => {
+      const page = mount(<NewBook/>);
+      expect(page.text()).toMatch('Add a book');
+    });
+
+    it('has a form with four fields', () => {
+      const page = mount(<NewBook/>);
+      expect(page.find('div.field').length).toEqual(4);
+    });
   });
 });
