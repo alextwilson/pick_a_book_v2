@@ -1,24 +1,18 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Enzyme from 'enzyme';
-import { shallow, mount } from 'enzyme';
+import EnzymeAdapter from 'enzyme-adapter-react-16';
+import { shallow, mount, render } from 'enzyme';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import HelloReact from '../js/app';
+import Home from '../js/app';
+
+Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe('HelloReact', () => {
   it('renders without crashing', () => {
     const div = document.createElement("div");
     div.id = "main";
     const window = ReactDom.render(<HelloReact/>, div);
-  });
-
-  it('404 invalid route', () => {
-    const wrapper = mount(
-    <Router initialEntries={[ '/random' ]}>
-      <HelloReact/>
-    </Router>
-  );
-  expect(wrapper.find(LandingPage)).toHaveLength(0);
-  expect(wrapper.find(NotFoundPage)).toHaveLength(1);
   });
 });

@@ -167,4 +167,5 @@ class Book extends React.Component {
 //   document.getElementById("main")
 // )
 
-export default HelloReact;
+module.exports = HelloReact;
+module.exports = Home;
