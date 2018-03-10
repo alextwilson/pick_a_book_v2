@@ -3,6 +3,8 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from "axios"
+import Home from './components/home'
+import NewBook from './components/newBook'
 
 class HelloReact extends React.Component {
   render() {
@@ -10,83 +12,25 @@ class HelloReact extends React.Component {
       <Router>
       <div>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/" component={Books}/>
-        <Route path="/books/new" component={NewBook}/>
+        <Route exact path="/books" component={Books}/>
+        <Route exact path="/books/:id" component={Book}/>
+        <Route exact path="/books/new" component={NewBook}/>
       </div>
       </Router>
     )
   }
 }
 
-class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Welcome to PickABook!</h1>
-        <Link to="/books/new">Add a book</Link>
-      </div>
-    )
-  }
-}
-
-class NewBook extends React.Component {
-  handleSubmit(event) {
-    event.preventDefault();
-    axios({
-      method: 'post',
-      headers: {"Content-Type": "application/json"},
-      url: '/api/books',
-      data: {
-        book: {
-          title: this.refs.title.value,
-          author: this.refs.author.value,
-          genre: this.refs.genre.value,
-          description: this.refs.description.value
-        }
-      }
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Add a book</h1>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <div className="field">
-            <input ref="title" type="text" placeholder="Title" required={true} />
-          </div>
-          <div className="field">
-            <input ref="author" type="text" placeholder="Author" required={true} />
-          </div>
-          <div className="field">
-            <input ref="genre" type="text" placeholder="Genre" required={true} />
-          </div>
-          <div className="field">
-            <input ref="description" type="text" placeholder="Description" required={true} />
-          </div>
-          <button type="submit">Add book</button>
-        </form>
-        <Link to="/">Home</Link>
-      </div>
-    );
-  }
-}
-
-
-
-
-class BookCard extends React.Component {
-
+class BookListing extends React.Component {
   render() {
     return (
       <div className="card">
         <div className="card-content">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4">{this.props.title}</p>
-              <p className="title is-4">{this.props.genre}</p>
-              <p className="subtitle is-6">{this.props.description}</p>
-              <p className="subtitle is-6">By {this.props.author}</p>
+              <strong className="title">{this.props.title}</strong>
+              <i className="author"> By {this.props.author}</i>
+              <Link to={ `/books/${this.props.id}` }>Show</Link>
             </div>
           </div>
         </div>
@@ -94,8 +38,6 @@ class BookCard extends React.Component {
     )
   }
 }
-
-
 
 class Books extends React.Component {
   constructor() {
@@ -115,58 +57,61 @@ class Books extends React.Component {
 
   render() {
     const posts = this.state.books.map((book, index) =>
-      <BookCard
+      <BookListing
         key = { index }
+        id = { book.id }
         title = { book.title }
         description = { book.description }
         genre = { book.genre }
         author = { book.author }
       />
     );
+
     return (
       <div>
-        <div className="is-primary is-large"
-          style = {{
-            position: "absolute",
-            top: "10px",
-            right: "10px",
-            padding: "10px 15px",
-            background: "#00D1B2"
-          }}
-        >
-          <Link
-            to="/books/new"
-            style = {{ color: "white" }}
-          >
-          Add a book
-          </Link>
-        </div>
-        <div className="is-primary is-large"
-          style = {{
-            position: "absolute",
-            top: "80px",
-            right: "10px",
-            padding: "10px 15px",
-            background: "#00D1B2"
-          }}
-        >
-          <Link
-            to="/update"
-            style = {{ color: "white" }}
-          >
-          Edit Book Post
-          </Link>
-        </div>
-      {posts}
+        <Link to="/">Home</Link>
+        <Link to="/books/new">Add a book</Link>
+        {posts}
       </div>
     )
   }
 }
 
+class Book extends React.Component {
+  constructor() {
+    super();
+    this.state = { book: [] };
+  }
 
+  componentDidMount() {
+    axios.get(`/api/books/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ book: response.data.book });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
+  render() {
+    return (
 
-ReactDOM.render(
-  <HelloReact/>,
-  document.getElementById("main")
-)
+      <div>
+        <p>
+          <Link to="/">Home</Link> | <Link to="/books">All books</Link> | <Link to="/books/new">Add a book</Link>
+        </p>
+        <p><strong>Title:</strong> {this.state.book.title}</p>
+        <p><strong>Author:</strong> {this.state.book.author}</p>
+        <p><strong>Genre:</strong> {this.state.book.genre}</p>
+        <p><strong>Description:</strong> {this.state.book.description}</p>
+      </div>
+    )
+  }
+}
+
+// ReactDOM.render(
+//   <HelloReact/>,
+//   document.getElementById("main")
+// )
+
+module.exports = HelloReact;
