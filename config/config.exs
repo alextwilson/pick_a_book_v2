@@ -23,9 +23,9 @@ config :logger, :console,
   metadata: [:user_id]
 
   # Guardian config
-config :myApi, MyApi.Guardian,
-       issuer: "myApi",
-       secret_key: "YhiX6D0ameHqdTPm0Ymg9Uo2xIo9S4P8Cnyzbbt770+KECc2JAfIs7a4LGSEOsxG"
+config :PickABook, PickABook.Guardian,
+       issuer: "PickABook",
+       secret_key: "PqnDOjPILIbzhinfZ2j+M6xLFmm2ZY2DyJjYxKBKhN1lsP0dnrL9r3Nq0rzCRxWb"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
