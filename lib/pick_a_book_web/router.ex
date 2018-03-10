@@ -26,7 +26,9 @@ defmodule PickABookWeb.Router do
   end
 
   scope "/api/v1", PickABookWeb do
-    pipe_through :api
+    pipe_through [:api, :jwt_authenticated]
+
+    get "/my_user", UserController, :show
 
     post "/sign_up", UserController, :create
 
