@@ -1,6 +1,8 @@
 defmodule PickABookWeb.Router do
   use PickABookWeb, :router
 
+  alias PickABook.Guardian
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -13,6 +15,10 @@ defmodule PickABookWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :jwt_authenticated do
+    plug Guardian.AuthPipeline
+  end
+
   scope "/", PickABookWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -22,6 +28,15 @@ defmodule PickABookWeb.Router do
   scope "/api", PickABookWeb do
     pipe_through :api
 
+    post "/sign_up", UserController, :create
+    post "/sign_in", UserController, :sign_in
+    
     resources "/books", BookController, except: [:new, :edit]
+  end
+
+  scope "/api", PickABookWeb do
+    pipe_through [:api, :jwt_authenticated]
+
+    get "/my_user", UserController, :show
   end
 end

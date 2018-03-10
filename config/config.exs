@@ -22,6 +22,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+  # Guardian config
+config :PickABook, PickABook.Guardian,
+       issuer: "PickABook",
+       secret_key: "DYiFBGOL19YHqx5pYgQsRhmj9FNCm9eKWVULfotAEPuMz88PvbnYf1boIVZK7tus"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
