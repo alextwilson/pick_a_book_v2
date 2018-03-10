@@ -1,6 +1,8 @@
 defmodule PickABookWeb.Router do
   use PickABookWeb, :router
 
+  alias PickABook.Guardian
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -11,6 +13,10 @@ defmodule PickABookWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  pipeline :jwt_authenticated do
+    plug Guardian.AuthPipeline
   end
 
   scope "/", PickABookWeb do
