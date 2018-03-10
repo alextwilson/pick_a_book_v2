@@ -72,7 +72,9 @@ class NewBook extends React.Component {
           </div>
           <button type="submit">Add book</button>
         </form>
-        <Link to="/">Home</Link>
+        <Router>
+          <Link to="/">Home</Link>
+        </Router>  
       </div>
     );
   }
@@ -173,3 +175,4 @@ class Book extends React.Component {
 
 module.exports = HelloReact;
 module.exports = Home;
+module.exports = NewBook;

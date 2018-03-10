@@ -6,6 +6,7 @@ import { shallow, mount, render } from 'enzyme';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import HelloReact from '../js/app';
 import Home from '../js/app';
+import NewBook from '../js/app';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
@@ -24,4 +25,9 @@ describe('Home', () => {
   });
 });
 
-describe
+describe('NewBook', () => {
+  it('show the text: Add a book', () => {
+    const page2 = mount(<NewBook/>);
+    expect(page2.text()).toMatch('Add a book');
+  });
+});
