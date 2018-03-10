@@ -19,24 +19,24 @@ defmodule PickABookWeb.BookView do
   # end
 
   def render("index.json", %{books: books}) do
-  %{
-    books: Enum.map(books, &books_json/1)
-  }
-end
+    %{
+      books: Enum.map(books, &books_json/1)
+    }
+  end
 
-# show single blog
-def render("show.json", %{book: book}) do
-  %{
-    book: books_json(book)
-  }
-end
+  def render("show.json", %{book: book}) do
+    %{
+      book: books_json(book)
+    }
+  end
 
-def books_json(book) do
-  %{
-    title: book.title,
-    description: book.description,
-    author: book.author,
-    genre: book.genre
-  }
-end
+  def books_json(book) do
+    %{
+      id: book.id,
+      title: book.title,
+      description: book.description,
+      author: book.author,
+      genre: book.genre
+    }
+  end
 end
