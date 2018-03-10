@@ -7,6 +7,27 @@ defmodule PickABook.Accounts do
   alias PickABook.Repo
 
   alias PickABook.Accounts.User
+  alias PickABook.Guardian
+
+  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
+
+  defp get_by_email(email) when is_binary(email) do
+    case Repo.get_by(User, email: email) do
+      nil ->
+        dummy_checkpw()
+        {:error, "Login error."}
+      user ->
+        {:ok, user}
+    end
+  end
+
+  defp verify_password(password, %User{} = user) when is_binary(password) do
+    if checkpw(password, user.password_hash) do
+      {:ok, user}
+    else
+      {:error, :invalid_password}
+    end
+  end
 
   @doc """
   Returns the list of users.
