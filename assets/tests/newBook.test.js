@@ -19,5 +19,11 @@ describe('NewBook', () => {
       const page = mount(<NewBook/>);
       expect(page.find('div.field').length).toEqual(4);
     });
+
+    it('calls handelSubmit', () => {
+      const page = mount(<NewBook/>);
+      page.find('button').simulate('click');
+      expect(page.instance().handleSubmit.calledOnce).toBeTrue;
+    });
   });
 });
