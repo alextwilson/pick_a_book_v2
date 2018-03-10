@@ -74,7 +74,7 @@ class NewBook extends React.Component {
         </form>
         <Router>
           <Link to="/">Home</Link>
-        </Router>  
+        </Router>
       </div>
     );
   }
@@ -175,4 +175,3 @@ class Book extends React.Component {
 
 module.exports = HelloReact;
 module.exports = Home;
-module.exports = NewBook;
