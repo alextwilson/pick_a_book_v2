@@ -16,3 +16,10 @@ describe('HelloReact', () => {
     const window = ReactDom.render(<HelloReact/>, div);
   });
 });
+
+describe('Home', () => {
+  it('has a welcome message', () => {
+    const page = render(<Home/>);
+    console.log(page);
+  });
+});
