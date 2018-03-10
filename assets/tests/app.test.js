@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import Enzyme from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { shallow, mount, render } from 'enzyme';
@@ -13,13 +13,13 @@ describe('HelloReact', () => {
   it('renders without crashing', () => {
     const div = document.createElement("div");
     div.id = "main";
-    const window = ReactDom.render(<HelloReact/>, div);
+    const window = ReactDOM.render(<HelloReact/>, div);
   });
 });
 
 describe('Home', () => {
   it('has a welcome message', () => {
-    const page = render(<Home/>);
-    console.log(page);
+    const page = mount(<Home/>);
+    expect(page.text()).toEqual('Welcome to PickABook!All booksAdd a book');
   });
 });
