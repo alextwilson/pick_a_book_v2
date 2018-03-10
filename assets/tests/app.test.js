@@ -20,6 +20,8 @@ describe('HelloReact', () => {
 describe('Home', () => {
   it('has a welcome message', () => {
     const page = mount(<Home/>);
-    expect(page.text()).toEqual('Welcome to PickABook!All booksAdd a book');
+    expect(page.text()).toMatch('Welcome to PickABook!');
   });
 });
+
+describe
