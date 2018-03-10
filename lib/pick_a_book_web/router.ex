@@ -29,7 +29,6 @@ defmodule PickABookWeb.Router do
     pipe_through [:api, :jwt_authenticated]
 
     get "/my_user", UserController, :show
-
     post "/sign_up", UserController, :create
 
     # resources "/books", BookController, except: [:new, :edit]
