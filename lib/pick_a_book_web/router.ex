@@ -25,7 +25,7 @@ defmodule PickABookWeb.Router do
     get "/", PageController, :index
   end
 
-  scope "/api/v1", PickABookWeb do
+  scope "/api", PickABookWeb do
     pipe_through :api
 
     post "/sign_up", UserController, :create
@@ -39,7 +39,7 @@ defmodule PickABookWeb.Router do
     put "/books/:id", BookController, :update
   end
 
-  scope "/api/v1", PickABookWeb do
+  scope "/api", PickABookWeb do
     pipe_through [:api, :jwt_authenticated]
 
     get "/my_user", UserController, :show
