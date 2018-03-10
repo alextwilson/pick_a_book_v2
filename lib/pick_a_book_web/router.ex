@@ -21,7 +21,9 @@ defmodule PickABookWeb.Router do
 
   scope "/api/v1", PickABookWeb do
     pipe_through :api
+
     post "/sign_up", UserController, :create
+
     # resources "/books", BookController, except: [:new, :edit]
     get "/books", BookController, :index
     post "/books", BookController, :create
