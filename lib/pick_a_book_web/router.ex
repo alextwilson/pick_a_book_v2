@@ -23,6 +23,7 @@ defmodule PickABookWeb.Router do
     pipe_through :api
 
     post "/sign_up", UserController, :create
+    post "/sign_in", UserController, :sign_in
 
     # resources "/books", BookController, except: [:new, :edit]
     get "/books", BookController, :index

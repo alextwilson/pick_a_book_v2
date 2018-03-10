@@ -12,13 +12,13 @@ defmodule PickABook.Accounts do
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   def token_sign_in(email, password) do
-  case email_password_auth(email, password) do
-    {:ok, user} ->
-      Guardian.encode_and_sign(user)
-    _ ->
-      {:error, :unauthorized}
+    case email_password_auth(email, password) do
+      {:ok, user} ->
+        Guardian.encode_and_sign(user)
+      _ ->
+        {:error, :unauthorized}
+    end
   end
-end
 
   defp email_password_auth(email, password) when is_binary(email) and is_binary(password) do
     with {:ok, user} <- get_by_email(email),
