@@ -1,3 +1,8 @@
+import 'phoenix_html';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 class Home extends React.Component {
   render() {
     return (
@@ -12,4 +17,6 @@ class Home extends React.Component {
       </div>
     )
   }
-}
+};
+
+module.exports = Home;
