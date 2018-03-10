@@ -26,11 +26,4 @@ describe('NewBook', () => {
       expect(page.instance().handleSubmit.calledOnce).toBeTrue;
     });
   });
-
-  describe('handleSubmit', () => {
-    it('has called the axios post request', () => {
-      const page = mount(<NewBook/>);
-      console.log(page.instance().handleSubmit);
-    })
-  })
 });
