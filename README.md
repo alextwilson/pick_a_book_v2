@@ -1,9 +1,22 @@
 # PickABook
 
 ### Overview
-This is a web application that allows users to exchange their unwanted used books with other users. This application has been split in to the user stories below.
+This is a web application that allows users to exchange their unwanted used books with other users.
 
 Created by [Giada Simonetti](https://github.com/GiadaSimonetti) || [Agata Golebiewska](https://github.com/MissDove) || [Lewis Moore](https://github.com/lewmoore) || [Benjamin Pourian](https://github.com/bpourian) || [Alex Wilson](https://github.com/alextwilson) || [Alexandra Fina](https://github.com/AlexandraGF)
+
+### Tech Stack
+This application was build with:
+* Elixir
+* Phoenix
+* ReactJs
+
+Tested with:
+* ExUnit
+* Jest
+* Enzyme
+
+The user stories for PickABook are as follows:
 
 ### User Stories
 
