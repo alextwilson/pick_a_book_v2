@@ -5,7 +5,7 @@ This is a web application that allows users to exchange their unwanted used book
 
 ### User Stories
 
-####MVP
+#### MVP
 ```
 As a user
 So I can make my book available to other users
