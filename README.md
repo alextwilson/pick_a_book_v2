@@ -11,6 +11,8 @@ As a user
 So I can make my book available to other users
 I would like to be able to add a book
 ```
+
+#### Version 1
 ```
 As a user
 So I can see what books are available
@@ -22,9 +24,14 @@ So I can see more details about a book
 I would like to see an individual book page
 ```
 
-
+#### Version 2
 ```
 As a user
 So I can use PickABook
-I would like to log in and log out
+I would like to be able to register
+```
+```
+As a user
+So I can return to PickABook
+I would like to be able to log in and out
 ```
