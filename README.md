@@ -3,6 +3,8 @@
 ### Overview
 This is a web application that allows users to exchange their unwanted used books with other users. This application has been split in to the user stories below.
 
+Created by [Giada Simonetti](https://github.com/GiadaSimonetti) || [Agata Golebiewska](https://github.com/MissDove) || [Lewis Moore](https://github.com/lewmoore) || [Benjamin Pourian](https://github.com/bpourian) || [Alex Wilson](https://github.com/alextwilson) || [Alexandra Fina](https://github.com/AlexandraGF)
+
 ### User Stories
 
 #### MVP
@@ -22,6 +24,11 @@ I would like to see a list of all books
 As a user
 So I can see more details about a book
 I would like to see an individual book page
+```
+```
+As a user
+So I can remove my books
+I would like to be able to delete a book
 ```
 
 #### Version 2
