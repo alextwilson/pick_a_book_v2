@@ -109,9 +109,9 @@ class Book extends React.Component {
   }
 }
 
-// ReactDOM.render(
-//   <HelloReact/>,
-//   document.getElementById("main")
-// )
+ReactDOM.render(
+  <HelloReact/>,
+  document.getElementById("main")
+)
 
 module.exports = HelloReact;
