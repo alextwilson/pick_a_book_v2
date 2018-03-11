@@ -65,7 +65,7 @@ I would like to search for books by title
 ```
 As a user
 So I can rate my experience
-I would like to give oyher users a review
+I would like to give other users a review
 ```
 ```
 As a user
