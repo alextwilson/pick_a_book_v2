@@ -56,6 +56,28 @@ So I can return to PickABook
 I would like to be able to log in and out
 ```
 
+#### Version 3
+```
+As a user
+So I can find the books I need
+I would like to search for books by title
+```
+```
+As a user
+So I can rate my experience
+I would like to give oyher users a review
+```
+```
+As a user
+So I can ask for books I like
+I would like to request to swap a book
+```
+```
+As a user
+So I can swap my books
+I would like to respond to requests for my books
+```
+
 #### Get Started
 
 Follow these steps to get started with the application:
