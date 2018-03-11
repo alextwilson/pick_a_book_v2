@@ -4,32 +4,42 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 
-class User extends React.Component {
+class LogIn extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios({
-      method: 'post',
-      headers: {"Content-Type": "application/json"},
-      url: 'api/users',
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      url: "api/users",
       data: {
         user: {
           email: this.refs.email.value,
           password: this.refs.password.value
         }
       }
-    })
+    });
   }
 
   render() {
-    return(
+    return (
       <div>
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
-            <input ref="email" type="text" placeholder="Email" required={true}/>
+            <input
+              ref="email"
+              type="text"
+              placeholder="Email"
+              required={true}
+            />
           </div>
           <div className="field">
-            <input ref="password" type="text" placeholder="Password" required={true}/>
+            <input
+              ref="password"
+              type="text"
+              placeholder="Password"
+              required={true}
+            />
           </div>
           <button type="submit">Log In</button>
         </form>
@@ -37,7 +47,6 @@ class User extends React.Component {
           <Link to="/">Home</Link>
         </Router>
       </div>
-
     );
     // return (
     // <div>
@@ -53,4 +62,4 @@ class User extends React.Component {
   }
 }
 
-module.exports = User;
+module.exports = LogIn;
