@@ -31,10 +31,11 @@ describe("User", () => {
     it("Submit works", () => {
       const component = mount(<User {...testValues} />);
       component.find("button").simulate("click");
+      testValues.handleSubmit({"email": "foo@gmail.com", "password": "123456"});
       expect(testValues.handleSubmit).toHaveBeenCalledTimes(1);
       expect(testValues.handleSubmit).toHaveBeenCalledWith({
         email: testValues.email,
-        passoword: testValues.password
+        password: testValues.password
       });
     });
   });
