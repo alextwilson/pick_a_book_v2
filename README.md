@@ -35,3 +35,14 @@ As a user
 So I can return to PickABook
 I would like to be able to log in and out
 ```
+
+#### Get Started
+
+Follow these steps to get started with the application:
+
+* Clone the repo
+* `cd` in to the folder, open the application and run `mix deps.get` to install Phoenix dependencies
+* Run `npm install` to install node dependencies
+* Run `mix ecto.create` and `mix ecto.migrate` to create and setup the database
+* Run `mix phx.server` to run the application
+* You are now running on localhost 4000!
