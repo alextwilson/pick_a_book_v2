@@ -21,24 +21,6 @@ class HelloReact extends React.Component {
   }
 }
 
-class BookListing extends React.Component {
-  render() {
-    return (
-      <div className="card">
-        <div className="card-content">
-          <div className="media">
-            <div className="media-content">
-              <strong className="title">{this.props.title}</strong>
-              <i className="author"> By {this.props.author}</i>
-              <Link to={`/books/${this.props.id}`}>Show</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
 class Books extends React.Component {
   constructor() {
     super();
