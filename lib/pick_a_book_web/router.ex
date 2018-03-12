@@ -32,6 +32,12 @@ defmodule PickABookWeb.Router do
     post "/sign_in", UserController, :sign_in
 
     resources "/books", BookController, except: [:new, :edit]
+    # get "/books", BookController, :index
+    # post "/books/new", BookController, :create
+    # get "/books/:id", BookController, :show
+    # patch "/books/:id", BookController, :update
+    # put "/books/:id", BookController, :update
+    # delete "/books/:id", BookController, :delete
   end
 
   scope "/api", PickABookWeb do
