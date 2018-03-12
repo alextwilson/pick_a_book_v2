@@ -3,11 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
-import Book from "./book";
-import Books from "./books"
-import Home from "./home"
-import NewBook from "./newBook"
-import SignUp from "./signUp"
 
 class LogIn extends React.Component {
   handleSubmit(event) {
