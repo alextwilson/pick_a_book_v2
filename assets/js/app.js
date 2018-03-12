@@ -3,8 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
-import Home from "./components/home";
-import NewBook from "./components/newBook";
 
 class HelloReact extends React.Component {
   render() {
@@ -15,11 +13,27 @@ class HelloReact extends React.Component {
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={Book} />
           <Route exact path="/books/new" component={NewBook} />
+          <Route exact path="/signup" component={SignUp} />
         </div>
       </Router>
     );
   }
 }
+
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Welcome to PickABook!</h1>
+          <Link to="/books">All books</Link>
+          <Link to="/books/new">Add a book</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/login">Log In</Link>
+      </div>
+    )
+  }
+};
+
 
 class BookListing extends React.Component {
   render() {
@@ -119,9 +133,167 @@ class Book extends React.Component {
   }
 }
 
-// ReactDOM.render(
-//   <HelloReact/>,
-//   document.getElementById("main")
-// )
+class LogIn extends React.Component {
+  handleSubmit(event) {
+    event.preventDefault();
+    axios({
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      url: "api/users",
+      data: {
+        user: {
+          email: this.refs.email.value,
+          password: this.refs.password.value
+        }
+      }
+    });
+  }
 
-module.exports = HelloReact;
+  render() {
+    return (
+      <div>
+        <h1>Log In</h1>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div className="field">
+            <input
+              ref="email"
+              type="text"
+              placeholder="Email"
+              required={true}
+            />
+          </div>
+          <div className="field">
+            <input
+              ref="password"
+              type="text"
+              placeholder="Password"
+              required={true}
+            />
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+        <Router>
+          <Link to="/">Home</Link>
+        </Router>
+      </div>
+    );
+  }
+}
+
+class NewBook extends React.Component {
+  handleSubmit(event) {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      headers: {"Content-Type": "application/json"},
+      url: '/api/books',
+      data: {
+        book: {
+          title: this.refs.title.value,
+          author: this.refs.author.value,
+          genre: this.refs.genre.value,
+          description: this.refs.description.value
+        }
+      }
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Add a book</h1>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div className="field">
+            <input ref="title" type="text" placeholder="Title" required={true} />
+          </div>
+          <div className="field">
+            <input ref="author" type="text" placeholder="Author" required={true} />
+          </div>
+          <div className="field">
+            <input ref="genre" type="text" placeholder="Genre" required={true} />
+          </div>
+          <div className="field">
+            <input ref="description" type="text" placeholder="Description" required={true} />
+          </div>
+          <button type="submit">Add book</button>
+        </form>
+        <Router>
+          <Link to="/">Home</Link>
+        </Router>
+      </div>
+    );
+  }
+}
+
+class SignUp extends React.Component {
+  handleSubmit(event) {
+    event.preventDefault();
+    axios({
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      url: "api/users",
+      data: {
+        user: {
+          email: this.refs.email.value,
+          username: this.refs.username.value,
+          password: this.refs.password.value,
+          password_confirmation: this.refs.password.value
+        }
+      }
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Sign Up</h1>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div className="field">
+            <input
+              ref="email"
+              type="text"
+              placeholder="Email"
+              required={true}
+            />
+          </div>
+          <div className="field">
+            <input
+              ref="username"
+              type="text"
+              placeholder="Username"
+              required={true}
+            />
+          </div>
+          <div className="field">
+            <input
+              ref="password"
+              type="text"
+              placeholder="Password"
+              required={true}
+            />
+          </div>
+          <div className="field">
+            <input
+              ref="password_confirmation"
+              type="text"
+              placeholder="Password Confirmation"
+              required={true}
+            />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <Router>
+          <Link to="/">Home</Link>
+        </Router>
+      </div>
+    );
+  }
+}
+
+
+ReactDOM.render(
+  <HelloReact/>,
+  document.getElementById("main")
+)
+
+// module.exports = HelloReact;
