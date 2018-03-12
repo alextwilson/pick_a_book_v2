@@ -34,7 +34,7 @@ class LogIn extends React.Component {
           <div className="field">
             <input
               ref="password"
-              type="text"
+              type="password"
               placeholder="Password"
               required={true}
             />

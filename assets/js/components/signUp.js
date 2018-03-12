@@ -46,7 +46,7 @@ class SignUp extends React.Component {
           <div className="field">
             <input
               ref="password"
-              type="text"
+              type="password"
               placeholder="Password"
               required={true}
             />
@@ -54,7 +54,7 @@ class SignUp extends React.Component {
           <div className="field">
             <input
               ref="password_confirmation"
-              type="text"
+              type="password"
               placeholder="Password Confirmation"
               required={true}
             />
