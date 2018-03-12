@@ -10,7 +10,7 @@ class LogIn extends React.Component {
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
-      url: "api/users",
+      url: "api/sign_in",
       data: {
         user: {
           email: this.refs.email.value,

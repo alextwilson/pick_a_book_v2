@@ -10,7 +10,7 @@ class SignUp extends React.Component {
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
-      url: "api/users",
+      url: "api/sign_up",
       data: {
         user: {
           email: this.refs.email.value,
