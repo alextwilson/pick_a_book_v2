@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import Home from "./components/home";
 import NewBook from "./components/newBook";
+import Book from "./components/book";
 
 class HelloReact extends React.Component {
   render() {

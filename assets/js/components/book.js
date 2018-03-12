@@ -7,12 +7,13 @@ import axios from "axios";
 class Book extends React.Component {
   constructor() {
     super();
-    this.state = { book: [] };
+    this.state = { book: []
+    };
   }
 
   componentDidMount() {
     axios
-      .get(`/api/books/${this.props.match.params.id}`)
+      .get(`http://localhost:4000/api/books/${this.props.match.params.id}`)
       .then(response => {
         this.setState({ book: response.data.book });
       })
