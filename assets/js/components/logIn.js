@@ -12,10 +12,8 @@ class LogIn extends React.Component {
       headers: { "Content-Type": "application/json" },
       url: "api/sign_in",
       data: {
-        user: {
-          email: this.refs.email.value,
-          password: this.refs.password.value
-        }
+        email: this.refs.email.value,
+        password: this.refs.password.value
       }
     });
   }
@@ -48,17 +46,6 @@ class LogIn extends React.Component {
         </Router>
       </div>
     );
-    // return (
-    // <div>
-    //   <h1>Welcome to PickABook!</h1>
-    //   <Router>
-    //     <Link to="/books">All books</Link>
-    //   </Router>
-    //   <Router>
-    //     <Link to="/books/new">Add a book</Link>
-    //   </Router>
-    // </div>
-    // )
   }
 }
 
