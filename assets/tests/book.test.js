@@ -8,7 +8,7 @@ import Book from '../js/components/book';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe('Book' () => {
+describe('Book', () => {
   describe('User adds new book', () => {
     const testValues = {
       title: "A lovely story",
@@ -18,7 +18,7 @@ describe('Book' () => {
       handleSubmit: jest.fn()
     };
     it("Book attributes have been added", () => {
-      const component = mount(<Add a book {...testValues} />);
+      const component = mount(<Book {...testValues} />);
       component.find("button").simulate("click");
       testValues.handleSubmit({
         title: "A lovely story",

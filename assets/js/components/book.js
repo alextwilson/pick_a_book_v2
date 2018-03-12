@@ -25,8 +25,12 @@ class Book extends React.Component {
     return (
       <div>
         <p>
-          <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
-          <Link to="/books/new">Add a book</Link>
+          <Router>
+            <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
+          </Router>
+          <Router>
+            <Link to="/books/new">Add a book</Link>
+          </Router>  
         </p>
         <p>
           <strong>Title:</strong> {this.state.book.title}
