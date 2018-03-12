@@ -1,14 +1,33 @@
 import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
-import Link from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 import Book from "./book";
-import BookListing from "./bookListing";
 import Home from "./home"
 import LogIn from "./logIn"
 import NewBook from "./newBook"
 import SignUp from "./signUp"
+
+class BookListing extends React.Component {
+  render() {
+    return (
+      <div className="card">
+        <div className="card-content">
+          <div className="media">
+            <div className="media-content">
+              <p>
+                <strong className="title">{this.props.title}</strong>
+                <i className="author"> By {this.props.author}</i> |{" "}
+                <Link to={`/books/${this.props.id}`}>Show</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 class Books extends React.Component {
   constructor() {
@@ -33,8 +52,6 @@ class Books extends React.Component {
         key={index}
         id={book.id}
         title={book.title}
-        description={book.description}
-        genre={book.genre}
         author={book.author}
       />
     ));
