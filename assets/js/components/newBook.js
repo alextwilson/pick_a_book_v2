@@ -16,7 +16,8 @@ class NewBook extends React.Component {
           title: this.refs.title.value,
           author: this.refs.author.value,
           genre: this.refs.genre.value,
-          description: this.refs.description.value
+          description: this.refs.description.value,
+          imageurl: this.refs.imageurl.value
         }
       }
     })
