@@ -1,9 +1,14 @@
 import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Link from "react-router-dom";
 import axios from "axios";
+import Book from "./book";
 import BookListing from "./bookListing";
+import Home from "./home"
+import LogIn from "./logIn"
+import NewBook from "./newBook"
+import SignUp from "./signUp"
 
 class Books extends React.Component {
   constructor() {
@@ -11,9 +16,9 @@ class Books extends React.Component {
     this.state = { books: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios
-      .get("http://localhost:4000/api/books")
+      .get("/api/books")
       .then(response => {
         this.setState({ books: response.data.books });
       })

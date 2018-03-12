@@ -3,6 +3,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import axios from "axios"
+import Book from "./book";
+import BookListing from "./bookListing";
+import Books from "./books"
+import Home from "./home"
+import LogIn from "./logIn"
+import SignUp from "./signUp"
 
 class NewBook extends React.Component {
   handleSubmit(event) {

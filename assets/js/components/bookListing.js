@@ -3,6 +3,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Book from "./book";
+import Books from "./books"
+import Home from "./home"
+import LogIn from "./logIn"
+import NewBook from "./newBook"
+import SignUp from "./signUp"
 
 class BookListing extends React.Component {
   render() {

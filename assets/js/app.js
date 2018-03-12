@@ -11,7 +11,7 @@ import LogIn from "./components/logIn"
 import NewBook from "./components/newBook"
 import SignUp from "./components/signUp"
 
-class HelloReact extends React.Component {
+class Main extends React.Component {
   render() {
     return (
       <Router>
@@ -27,6 +27,6 @@ class HelloReact extends React.Component {
 }
 
 ReactDOM.render(
-  <HelloReact/>,
+  <Main/>,
   document.getElementById("main")
 )
