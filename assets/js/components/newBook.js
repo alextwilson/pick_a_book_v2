@@ -41,7 +41,6 @@ class NewBook extends React.Component {
           </div>
           <button type="submit">Add book</button>
         </form>
-        <Link to="/">Home</Link>
       </div>
     );
   }
