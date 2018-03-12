@@ -18,7 +18,8 @@
     "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
-    "redux-simple-router": "^2.0.4"
+    "redux-simple-router": "^2.0.4",
+    "sinon": "^4.4.3"
   },
   "devDependencies": {
     "babel-brunch": "6.1.1",
