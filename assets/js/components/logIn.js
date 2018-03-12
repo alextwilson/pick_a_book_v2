@@ -41,9 +41,7 @@ class LogIn extends React.Component {
           </div>
           <button type="submit">Log In</button>
         </form>
-        <Router>
-          <Link to="/">Home</Link>
-        </Router>
+        <Link to="/">Home</Link>
       </div>
     );
   }

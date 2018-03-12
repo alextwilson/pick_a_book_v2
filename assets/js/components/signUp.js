@@ -61,9 +61,7 @@ class SignUp extends React.Component {
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <Router>
-          <Link to="/">Home</Link>
-        </Router>
+        <Link to="/">Home</Link>
       </div>
     );
   }
