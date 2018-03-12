@@ -6,8 +6,8 @@ defmodule PickABook.AccountsTest do
   describe "users" do
     alias PickABook.Accounts.User
 
-    @valid_attrs %{email: "some email", password_hash: "some password_hash", username: "some username"}
-    @update_attrs %{email: "some updated email", password_hash: "some updated password_hash", username: "some updated username"}
+    @valid_attrs %{email: "test@test.com", password: "password", username: "TestAccount", password_confirmation: "password"}
+    @update_attrs %{email: "test2@test.com", password: "password2", username: "TestAccount2", password_confirmation: "password2"}
     @invalid_attrs %{email: nil, password_hash: nil, username: nil}
 
     def user_fixture(attrs \\ %{}) do
@@ -19,21 +19,10 @@ defmodule PickABook.AccountsTest do
       user
     end
 
-    test "list_users/0 returns all users" do
-      user = user_fixture()
-      assert Accounts.list_users() == [user]
-    end
-
-    test "get_user!/1 returns the user with given id" do
-      user = user_fixture()
-      assert Accounts.get_user!(user.id) == user
-    end
-
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == "some email"
-      assert user.password_hash == "some password_hash"
-      assert user.username == "some username"
+      assert user.email == "test@test.com"
+      assert user.username == "TestAccount"
     end
 
     test "create_user/1 with invalid data returns error changeset" do
@@ -44,15 +33,8 @@ defmodule PickABook.AccountsTest do
       user = user_fixture()
       assert {:ok, user} = Accounts.update_user(user, @update_attrs)
       assert %User{} = user
-      assert user.email == "some updated email"
-      assert user.password_hash == "some updated password_hash"
-      assert user.username == "some updated username"
-    end
-
-    test "update_user/2 with invalid data returns error changeset" do
-      user = user_fixture()
-      assert {:error, %Ecto.Changeset{}} = Accounts.update_user(user, @invalid_attrs)
-      assert user == Accounts.get_user!(user.id)
+      assert user.email == "test2@test.com"
+      assert user.username == "TestAccount2"
     end
 
     test "delete_user/1 deletes the user" do

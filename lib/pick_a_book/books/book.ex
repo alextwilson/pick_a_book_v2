@@ -8,6 +8,7 @@ defmodule PickABook.Books.Book do
     field :description, :string
     field :genre, :string
     field :title, :string
+    field :imageURL, :string
 
     timestamps()
   end
@@ -15,7 +16,7 @@ defmodule PickABook.Books.Book do
   @doc false
   def changeset(book, attrs) do
     book
-    |> cast(attrs, [:title, :author, :genre, :description])
-    |> validate_required([:title, :author, :genre, :description])
+    |> cast(attrs, [:title, :author, :genre, :description, :imageURL])
+    |> validate_required([:title, :author, :genre, :description, :imageURL])
   end
 end
