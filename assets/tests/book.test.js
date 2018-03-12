@@ -5,6 +5,7 @@ import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { shallow, mount, render } from 'enzyme';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Book from '../js/components/book';
+import axios from 'axios';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
