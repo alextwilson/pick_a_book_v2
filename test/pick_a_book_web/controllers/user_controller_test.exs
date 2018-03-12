@@ -9,19 +9,6 @@ defmodule PickABookWeb.UserControllerTest do
   # @update_attrs %{email: "some updated email", password_hash: "some updated password_hash", username: "some updated username"}
   # @invalid_attrs %{email: nil, password_hash: nil, username: nil}
 
-  describe "create user" do
-    test "user created and verified" do
-
-
-    response = APICall.post!("/api/sign_up", @create_attrs)
-
-    expected_response = %{data: %{username: "username"}}
-
-    assert response.status_code == 200
-    assert response.body == expected_response
-    end
-  end
-
   # def fixture(:user) do
   #   {:ok, user} = Accounts.create_user(@create_attrs)
   #   user
