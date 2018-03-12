@@ -41,8 +41,9 @@ class Books extends React.Component {
 
     return (
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/books/new">Add a book</Link>
+        <p>
+          <Link to="/">Home</Link> | <Link to="/books/new">Add a book</Link>
+        </p>
         {posts}
       </div>
     );
