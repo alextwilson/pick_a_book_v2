@@ -9,7 +9,7 @@ import Book from '../js/components/book';
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe('Book' () => {
-  describe('Book: attributes have been added', () => {
+  describe('User adds new book', () => {
     const testValues = {
       title: "A lovely story",
       author: "Benjamin Lewis",
@@ -17,5 +17,22 @@ describe('Book' () => {
       description: "A story about two men fighting for the cake.",
       handleSubmit: jest.fn()
     };
-  })
-})
+    it("Book attributes have been added", () => {
+      const component = mount(<Add a book {...testValues} />);
+      component.find("button").simulate("click");
+      testValues.handleSubmit({
+        title: "A lovely story",
+        author: "Benjamin Lewis",
+        genre: "horror",
+        description: "A story about two men fighting for the cake."
+      });
+      expect(testValues.handleSubmit).toHaveBeenCalledTimes(1);
+      expect(testValues.handleSubmit).toHaveBeenCalledWith({
+        title: testValues.title,
+        author: testValues.author,
+        genre: testValues.genre,
+        description: testValues.description
+      });
+    });
+  });
+});
