@@ -19,21 +19,6 @@ defmodule PickABookWeb.UserControllerTest do
   end
 
   describe "create user" do
-
-    test "renders user when data is valid", %{conn: conn} do
-      conn = post conn, user_path(conn, :create), user: @create_attrs
-      response = json_response(conn, 200)
-      assert response.jwt == "jwt"
-      # assert %{"id" => id} = json_response(conn, 200)
-      #
-      # conn = get conn, user_path(conn, :show, id)
-      # assert json_response(conn, 200)["data"] == %{
-      #   "id" => id,
-      #   "email" => "some email",
-      #   "password_hash" => "some password_hash",
-      #   "username" => "some username"}
-    end
-
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, user_path(conn, :create), user: @invalid_attrs
       assert json_response(conn, 422)["errors"] != %{}
