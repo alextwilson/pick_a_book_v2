@@ -41,7 +41,7 @@ class NewBook extends React.Component {
             <input ref="description" type="text" placeholder="Description" required={true} />
           </div>
           <div className="field">
-            <input ref="image" type="text" placeholder="image url" required={true} />
+            <input ref="imageurl" type="text" placeholder="image url" required={true} />
           </div>
           <button type="submit">Add book</button>
         </form>

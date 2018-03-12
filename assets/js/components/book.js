@@ -40,6 +40,9 @@ class Book extends React.Component {
         <p>
           <strong>Description:</strong> {this.state.book.description}
         </p>
+        <p>
+        <strong>ImageURL:</strong> {this.state.book.imageurl}
+        </p>
       </div>
     );
   }
