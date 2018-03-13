@@ -28,7 +28,7 @@ class CommentForm extends React.Component {
             className="form-control"
             placeholder="Comment:"
             ref={textarea => (this._body = textarea)}
-            onKeyUp={this._getCharacterCount}
+            onKeyUp={this.getCharacterCount}
           />
           <div className="text-xs-right">
             <span className="label label-pill label-default">
@@ -44,8 +44,8 @@ class CommentForm extends React.Component {
       </form>
     );
   }
-  _handleSubmit = ev => {
-    ev.preventDefault();
+  _handleSubmit(event) {
+    event.preventDefault();
 
     let author = this._author;
     let body = this._body;
@@ -60,9 +60,9 @@ class CommentForm extends React.Component {
     this._author.value = "";
     this._body.value = "";
     this.setState({ characters: 0 });
-  };
+  }
 
-  _getCharacterCount = () => {
+  functiongetCharacterCount(){
     this.setState({
       characters: this._body.value.length
     });
@@ -70,7 +70,7 @@ class CommentForm extends React.Component {
 }
 
 class Comment extends React.Component {
-  _handleDelete = ev => {
+  function _handleDelete(ev){
     ev.preventDefault();
     if (confirm("Delete this comment?")) {
       this.props.onDelete(this.props);
@@ -108,12 +108,14 @@ class CommentBox extends React.Component {
       characters: 0
     };
   }
-  componentDidMount() {
-    this._timer = setInterval(() => this._fetchComments(), 5000);
-  }
   componentWillMount() {
-    clearInterval(this._timer);
+    this._fetchComments();
   }
+
+  componentDidMount() {
+    // this._timer = setInterval(() => this._fetchComments(), 10000);
+  }
+
   render() {
     const comments = this._getComments();
     let commentNodes;
@@ -195,10 +197,6 @@ class CommentBox extends React.Component {
       url: `/api/comments/${this.props.match.params.id}`,
       method: "DELETE"
     });
-
-    //const comments = [...this.state.comments];
-    //const commentIndex = comments.indexOf(comment);
-    //comments.splice(commentIndex, 1);
 
     const comments = this.state.comments.filter(cmt => cmt.id !== comment.id);
 
