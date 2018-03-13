@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { BrowserRouter as Redirect} from "react-router-dom";
+import { BrowserRouter, Redirect} from "react-router-dom";
 import axios from "axios";
 
 class NewBook extends React.Component {
