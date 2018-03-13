@@ -1,8 +1,13 @@
 import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { BrowserRouter, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+// import { BrowserRouter, Redirect } from "react-router-dom";
 import axios from "axios";
 
 class NewBook extends React.Component {
