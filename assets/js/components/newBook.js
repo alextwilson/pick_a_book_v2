@@ -1,12 +1,24 @@
 import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import axios from "axios";
 
 class NewBook extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fireRedirect: false
+    };
+  }
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -23,6 +35,8 @@ class NewBook extends React.Component {
   }
 
   render() {
+    const { from } = this.props.location.state || "/";
+    const { fireRedirect } = this.state;
     return (
       <div>
         <h1>Add a book</h1>
@@ -66,11 +80,11 @@ class NewBook extends React.Component {
               placeholder="Image URL"
               required={true}
               />
-            </div>
-            <button type="submit">Add book  </button>
-
+          </div>
+          <button type="submit">Add book </button>
         </form>
-
+        {fireRedirect && <Redirect to={from || "/books/"} />}
+        <Link to="/">Home</Link>
       </div>
     );
   }
