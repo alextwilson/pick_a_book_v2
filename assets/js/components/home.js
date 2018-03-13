@@ -9,7 +9,7 @@ class Home extends React.Component {
       <div>
         <h1>Welcome to PickABook!</h1>
         <Link to="/books">All books</Link>
-        <Link to="/books/new">Add a book</Link>
+        <Link to="/book/new">Add a book</Link>
       </div>
     )
   }
