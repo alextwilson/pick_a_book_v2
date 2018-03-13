@@ -41,7 +41,7 @@ class Book extends React.Component {
           <strong>Description:</strong> {this.state.book.description}
         </p>
         <p>
-        <strong>ImageURL:</strong> {this.state.book.imageurl}
+          <img id="image" height="80" width="80" src={this.state.book.imageurl} />
         </p>
       </div>
     );
