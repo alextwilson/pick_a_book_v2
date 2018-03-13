@@ -10,13 +10,33 @@ class LogIn extends React.Component {
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
-      url: "api/users",
+      url: "api/sign_in",
       data: {
-        user: {
-          email: this.refs.email.value,
-          password: this.refs.password.value
-        }
+        email: this.refs.email.value,
+        password: this.refs.password.value
       }
+    })
+    .then(response => {
+      sessionStorage.setItem('jwt', response.data.jwt);
+    })
+    .then(token => {
+      const AUTH_STRING = 'Bearer '.concat(sessionStorage.getItem('jwt'));
+      axios({
+        method: "get",
+        headers: { "Content-Type": "application/json", "Authorization": AUTH_STRING },
+        url: "api/my_user"
+      })
+      .then(userResponse => {
+        sessionStorage.setItem('username', userResponse.data.username);
+        sessionStorage.setItem('userId', userResponse.data.id);
+        sessionStorage.setItem('email', userResponse.data.email);
+        console.log(sessionStorage);
+      })
+    })
+    .catch(error => {
+      sessionStorage.setItem('loginFailed', 'true');
+      console.log(error);
+      this.forceUpdate();
     });
   }
 
@@ -24,6 +44,11 @@ class LogIn extends React.Component {
     return (
       <div>
         <h1>Log In</h1>
+        {sessionStorage.getItem('loginFailed') &&
+          <h4>
+            Username or password is incorrect!
+          </h4>
+        }
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
@@ -36,29 +61,16 @@ class LogIn extends React.Component {
           <div className="field">
             <input
               ref="password"
-              type="text"
+              type="password"
               placeholder="Password"
               required={true}
             />
           </div>
           <button type="submit">Log In</button>
         </form>
-        <Router>
-          <Link to="/">Home</Link>
-        </Router>
+        <Link to="/">Home</Link>
       </div>
     );
-    // return (
-    // <div>
-    //   <h1>Welcome to PickABook!</h1>
-    //   <Router>
-    //     <Link to="/books">All books</Link>
-    //   </Router>
-    //   <Router>
-    //     <Link to="/books/new">Add a book</Link>
-    //   </Router>
-    // </div>
-    // )
   }
 }
 

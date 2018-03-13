@@ -19,6 +19,8 @@ class Main extends React.Component {
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={Book} />
           <Route exact path="/book/new" component={NewBook} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={LogIn} />
         </div>
       </Router>
     );

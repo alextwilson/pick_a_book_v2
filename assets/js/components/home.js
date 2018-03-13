@@ -8,8 +8,15 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Welcome to PickABook!</h1>
-        <Link to="/books">All books</Link>
-        <Link to="/book/new">Add a book</Link>
+        {sessionStorage.getItem('username') &&
+          <h3>
+            Hello {sessionStorage.getItem('username')}!
+          </h3>
+        }
+        <Link to="/books">All books |</Link>
+        <Link to="/book/new"> Add a book |</Link>
+        <Link to="/signup"> Sign Up |</Link>
+        <Link to="/login"> Log In</Link>
       </div>
     );
   }

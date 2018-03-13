@@ -10,7 +10,7 @@ class SignUp extends React.Component {
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
-      url: "api/users",
+      url: "api/sign_up",
       data: {
         user: {
           email: this.refs.email.value,
@@ -19,6 +19,29 @@ class SignUp extends React.Component {
           password_confirmation: this.refs.password.value
         }
       }
+    })
+    .then(response => {
+      sessionStorage.setItem('jwt', response.data.jwt);
+    })
+    .then(token => {
+      const AUTH_STRING = 'Bearer '.concat(sessionStorage.getItem('jwt'));
+      axios({
+        method: "get",
+        headers: { "Content-Type": "application/json", "Authorization": AUTH_STRING },
+        url: "api/my_user"
+      })
+      .then(userResponse => {
+        sessionStorage.setItem('username', userResponse.data.username);
+        sessionStorage.setItem('userId', userResponse.data.id);
+        sessionStorage.setItem('email', userResponse.data.email);
+        sessionStorage.removeItem('signupFailed');
+        this.forceUpdate();
+      })
+    })
+    .catch(error => {
+      sessionStorage.setItem('signupFailed', 'true');
+      console.log(error);
+      this.forceUpdate();
     });
   }
 
@@ -26,6 +49,11 @@ class SignUp extends React.Component {
     return (
       <div>
         <h1>Sign Up</h1>
+        {sessionStorage.getItem('signupFailed') &&
+          <h4>
+            Unable to register a new account. Please check your email address is correct and your password is over 4 characters long!
+          </h4>
+        }
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
@@ -46,7 +74,7 @@ class SignUp extends React.Component {
           <div className="field">
             <input
               ref="password"
-              type="text"
+              type="password"
               placeholder="Password"
               required={true}
             />
@@ -54,16 +82,14 @@ class SignUp extends React.Component {
           <div className="field">
             <input
               ref="password_confirmation"
-              type="text"
+              type="password"
               placeholder="Password Confirmation"
               required={true}
             />
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <Router>
-          <Link to="/">Home</Link>
-        </Router>
+        <Link to="/">Home</Link>
       </div>
     );
   }
