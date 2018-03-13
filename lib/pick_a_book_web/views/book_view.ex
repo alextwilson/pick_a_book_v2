@@ -36,7 +36,8 @@ defmodule PickABookWeb.BookView do
       title: book.title,
       description: book.description,
       author: book.author,
-      genre: book.genre
+      genre: book.genre,
+      imageurl: book.imageurl
     }
   end
 end
