@@ -34,7 +34,9 @@ class LogIn extends React.Component {
       })
     })
     .catch(error => {
+      sessionStorage.setItem('loginFailed', 'true');
       console.log(error);
+      this.forceUpdate();
     });
   }
 
@@ -42,6 +44,11 @@ class LogIn extends React.Component {
     return (
       <div>
         <h1>Log In</h1>
+        {sessionStorage.getItem('loginFailed') &&
+          <h4>
+            Username or password is incorrect!
+          </h4>
+        }
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
