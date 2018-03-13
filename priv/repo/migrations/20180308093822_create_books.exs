@@ -7,6 +7,7 @@ defmodule PickABook.Repo.Migrations.CreateBooks do
       add :author, :string
       add :genre, :string
       add :description, :text
+      add :imageurl, :string
 
       timestamps()
     end
