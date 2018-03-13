@@ -5,8 +5,15 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 class NewBook extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fireRedirect: false
+    };
+  }
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -23,6 +30,11 @@ class NewBook extends React.Component {
   }
 
   render() {
+    const { from } = this.props.location.state || "/";
+    const { fireRedirect } = this.state;
+    console.log(this.state);
+    console.log(this.props.location.state);
+    console.log(from);
     return (
       <div>
         <h1>Add a book</h1>
@@ -59,12 +71,19 @@ class NewBook extends React.Component {
               required={true}
             />
           </div>
-            <button type="submit">Add book  </button>
+          <button type="submit">Add book </button>
         </form>
+        {fireRedirect && <Redirect to={from || "/books/"} />}
         <Link to="/">Home</Link>
       </div>
     );
   }
+
+  // function _handleClick(){
+  //   this.setState({
+  //     <Link to="/">Home</Link>
+  //   });
+  // };
 }
 
 module.exports = NewBook;
