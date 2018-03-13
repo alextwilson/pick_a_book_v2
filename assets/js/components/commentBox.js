@@ -2,6 +2,7 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Redirect } from "react-router-dom";
 import axios from "axios";
 
 class CommentForm extends React.Component {
@@ -12,9 +13,26 @@ class CommentForm extends React.Component {
       characters: 0
     };
   }
+  handleSubmit(event) {
+    event.preventDefault();
+
+    let author = this.author_comment;
+    let body = this.body_comment;
+
+    if (!author.value || !body.value) {
+      alert("Please enter your name and comment");
+      return;
+    }
+
+    this.props.addComment(author.value, body.value);
+
+    this._author.value = "";
+    this._body.value = "";
+    this.setState({ characters: 0 });
+  }
   render() {
     return (
-      <form className="comment-form" onSubmit={this._handleSubmit}>
+      <form className="comment-form" onSubmit={this.handleSubmit}>
         <h3>Join the discussion</h3>
         <div className="comment-form-fields">
           <input
@@ -44,38 +62,21 @@ class CommentForm extends React.Component {
       </form>
     );
   }
-  _handleSubmit(event) {
-    event.preventDefault();
 
-    let author = this._author;
-    let body = this._body;
-
-    if (!author.value || !body.value) {
-      alert("Please enter your name and comment");
-      return;
-    }
-
-    this.props.addComment(author.value, body.value);
-
-    this._author.value = "";
-    this._body.value = "";
-    this.setState({ characters: 0 });
-  }
-
-  functiongetCharacterCount(){
+  functiongetCharacterCount() {
     this.setState({
       characters: this._body.value.length
     });
-  };
+  }
 }
 
 class Comment extends React.Component {
-  function _handleDelete(ev){
+  handleDelete(ev) {
     ev.preventDefault();
     if (confirm("Delete this comment?")) {
       this.props.onDelete(this.props);
     }
-  };
+  }
   render() {
     return (
       <div className="comment card">
@@ -89,7 +90,7 @@ class Comment extends React.Component {
           <p className="comment-body card-text">{this.props.body}</p>
         </div>
         <div className="card-footer">
-          <a href="#" onClick={this._handleDelete}>
+          <a href="#" onClick={this.handleDelete}>
             <small>Delete comment</small>
           </a>
         </div>
@@ -109,15 +110,15 @@ class CommentBox extends React.Component {
     };
   }
   componentWillMount() {
-    this._fetchComments();
+    this.fetchComments();
   }
 
   componentDidMount() {
-    // this._timer = setInterval(() => this._fetchComments(), 10000);
+    // this._timer = setInterval(() => this.fetchComments(), 10000);
   }
 
   render() {
-    const comments = this._getComments();
+    const comments = this.getComments();
     let commentNodes;
     let buttonText = "Show comments";
 
@@ -128,14 +129,14 @@ class CommentBox extends React.Component {
 
     return (
       <div className="comment-box m-b-2">
-        <CommentForm addComment={this._addComment} />
+        <CommentForm addComment={this.addComment} />
         <div>
           <h3>Comments</h3>
           <div className="m-b-2">
             <h4 className="comment-count">{comments.length} comments</h4>
             <button
               className="btn btn-secondary btn-sm"
-              onClick={this._handleClick}
+              onClick={this.handleClick}
             >
               {buttonText}
             </button>
@@ -146,7 +147,7 @@ class CommentBox extends React.Component {
     );
   }
 
-  _fetchComments() {
+  fetchComments() {
     axios({
       url: this.props.apiUrl,
       method: "GET",
@@ -159,7 +160,7 @@ class CommentBox extends React.Component {
     });
   }
 
-  _getComments() {
+  getComments() {
     return this.state.comments.map(comment => (
       <Comment
         {...comment}
@@ -169,13 +170,13 @@ class CommentBox extends React.Component {
     ));
   }
 
-  _handleClick = () => {
+  handleClick() {
     this.setState({
       showComments: !this.state.showComments
     });
-  };
+  }
 
-  _addComment = (author, body) => {
+  addComment(author, body) {
     let comment = {
       id: this.state.comments.length + 1,
       author,
@@ -190,7 +191,7 @@ class CommentBox extends React.Component {
     this.setState({
       comments: this.state.comments.concat(comment)
     });
-  };
+  }
 
   _deleteComment(comment) {
     $.ajax({
