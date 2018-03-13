@@ -34,11 +34,14 @@ class SignUp extends React.Component {
         sessionStorage.setItem('username', userResponse.data.username);
         sessionStorage.setItem('userId', userResponse.data.id);
         sessionStorage.setItem('email', userResponse.data.email);
-        console.log(sessionStorage);
+        sessionStorage.removeItem('signupFailed');
+        this.forceUpdate();
       })
     })
     .catch(error => {
+      sessionStorage.setItem('signupFailed', 'true');
       console.log(error);
+      this.forceUpdate();
     });
   }
 
@@ -46,6 +49,11 @@ class SignUp extends React.Component {
     return (
       <div>
         <h1>Sign Up</h1>
+        {sessionStorage.getItem('signupFailed') &&
+          <h4>
+            Unable to register a new account. Please check your email address is correct and your password is over 4 characters long!
+          </h4>
+        }
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
