@@ -15,6 +15,17 @@ class CommentForm extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    axios({
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      url: "/api/books",
+      data: {
+        comment: {
+          author: this.refs.author_comment.value,
+          body: this.refs.body_comment.value
+        }
+      }
+    });
 
     let author = this.author_comment;
     let body = this.body_comment;
@@ -26,10 +37,11 @@ class CommentForm extends React.Component {
 
     this.props.addComment(author.value, body.value);
 
-    this._author.value = "";
-    this._body.value = "";
+    this.author.value = "";
+    this.body.value = "";
     this.setState({ characters: 0 });
   }
+
   render() {
     return (
       <form className="comment-form" onSubmit={this.handleSubmit}>
@@ -38,14 +50,14 @@ class CommentForm extends React.Component {
           <input
             className="form-control"
             placeholder="Name:"
-            ref={input => (this._author = input)}
+            ref={input => (this.author = input)}
           />
           <br />
           <br />
           <textarea
             className="form-control"
             placeholder="Comment:"
-            ref={textarea => (this._body = textarea)}
+            ref={textarea => (this.body = textarea)}
             onKeyUp={this.getCharacterCount}
           />
           <div className="text-xs-right">
