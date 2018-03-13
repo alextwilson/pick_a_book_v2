@@ -4,9 +4,9 @@ import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom";
+import { BrowserRouter as Redirect} from "react-router-dom";
 import axios from "axios";
 
 class NewBook extends React.Component {
@@ -28,7 +28,8 @@ class NewBook extends React.Component {
           title: this.refs.title.value,
           author: this.refs.author.value,
           genre: this.refs.genre.value,
-          description: this.refs.description.value
+          description: this.refs.description.value,
+          imageurl: this.refs.imageurl.value
         }
       }
     });
