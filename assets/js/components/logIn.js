@@ -16,39 +16,38 @@ class LogIn extends React.Component {
         password: this.refs.password.value
       }
     })
-    .then(response => {
-      sessionStorage.setItem('jwt', response.data.jwt);
-    })
-    .then(token => {
-      const AUTH_STRING = 'Bearer '.concat(sessionStorage.getItem('jwt'));
-      axios({
-        method: "get",
-        headers: { "Content-Type": "application/json", "Authorization": AUTH_STRING },
-        url: "api/my_user"
+      .then(response => {
+        sessionStorage.setItem("jwt", response.data.jwt);
       })
-      .then(userResponse => {
-        sessionStorage.setItem('username', userResponse.data.username);
-        sessionStorage.setItem('userId', userResponse.data.id);
-        sessionStorage.setItem('email', userResponse.data.email);
-        console.log(sessionStorage);
+      .then(token => {
+        const AUTH_STRING = "Bearer ".concat(sessionStorage.getItem("jwt"));
+        axios({
+          method: "get",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: AUTH_STRING
+          },
+          url: "api/my_user"
+        }).then(userResponse => {
+          sessionStorage.setItem("username", userResponse.data.username);
+          sessionStorage.setItem("userId", userResponse.data.id);
+          sessionStorage.setItem("email", userResponse.data.email);
+        });
       })
-    })
-    .catch(error => {
-      sessionStorage.setItem('loginFailed', 'true');
-      console.log(error);
-      this.forceUpdate();
-    });
+      .catch(error => {
+        sessionStorage.setItem("loginFailed", "true");
+        console.log(error);
+        this.forceUpdate();
+      });
   }
 
   render() {
     return (
       <div>
         <h1>Log In</h1>
-        {sessionStorage.getItem('loginFailed') &&
-          <h4>
-            Username or password is incorrect!
-          </h4>
-        }
+        {sessionStorage.getItem("loginFailed") && (
+          <h4>Username or password is incorrect!</h4>
+        )}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
