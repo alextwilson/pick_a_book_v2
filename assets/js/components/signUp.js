@@ -19,6 +19,9 @@ class SignUp extends React.Component {
           password_confirmation: this.refs.password.value
         }
       }
+    })
+    .then(function(response) {
+      sessionStorage.setItem('jwt', response.data.jwt);
     });
   }
 
