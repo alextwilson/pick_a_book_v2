@@ -2,11 +2,19 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import axios from "axios";
 
 class LogIn extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fireRedirect: false
+    };
+  }
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -42,6 +50,8 @@ class LogIn extends React.Component {
   }
 
   render() {
+    const { from } = this.props.location.state || "/";
+    const { fireRedirect } = this.state;
     return (
       <div>
         <h1>Log In</h1>
@@ -67,6 +77,7 @@ class LogIn extends React.Component {
           </div>
           <button type="submit">Log In</button>
         </form>
+        {fireRedirect && <Redirect to={from || "/"} />}
         <Link to="/">Home</Link>
       </div>
     );
