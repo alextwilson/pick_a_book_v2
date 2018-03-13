@@ -30,9 +30,9 @@ defmodule PickABookWeb.Router do
 
     post "/sign_up", UserController, :create
     post "/sign_in", UserController, :sign_in
-
-    resources "/books", BookController, except: [:new, :edit, :create]
     post "/book/new", BookController, :create
+    resources "/books", BookController, except: [:new, :edit]
+
   end
 
   scope "/api", PickABookWeb do
