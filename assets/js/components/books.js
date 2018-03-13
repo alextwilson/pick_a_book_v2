@@ -42,7 +42,8 @@ class Books extends React.Component {
   }
 
   render() {
-    const posts = this.state.books.map((book, index) => (
+    const arr = this.state.books.reverse()
+    const posts = arr.map((book, index) => (
       <BookListing
         key={index}
         id={book.id}
