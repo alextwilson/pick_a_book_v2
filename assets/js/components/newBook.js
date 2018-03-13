@@ -73,6 +73,14 @@ class NewBook extends React.Component {
               required={true}
             />
           </div>
+          <div className="field">
+            <input
+              ref="imageurl"
+              type="text"
+              placeholder="Image URL"
+              required={true}
+              />
+          </div>
           <button type="submit">Add book </button>
         </form>
         {fireRedirect && <Redirect to={from || "/books/"} />}
