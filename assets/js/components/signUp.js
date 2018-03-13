@@ -14,7 +14,6 @@ class SignUp extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -44,8 +43,7 @@ class SignUp extends React.Component {
           sessionStorage.setItem("username", userResponse.data.username);
           sessionStorage.setItem("userId", userResponse.data.id);
           sessionStorage.setItem("email", userResponse.data.email);
-          sessionStorage.removeItem("signupFailed");
-          this.forceUpdate();
+          this.setState({ fireRedirect: true });
         });
       })
       .catch(error => {
