@@ -59,7 +59,7 @@ class NewBook extends React.Component {
               required={true}
             />
           </div>
-          <button type="submit">Add book</button>
+            <button type="submit">Add book  </button>
         </form>
         <Link to="/">Home</Link>
       </div>
