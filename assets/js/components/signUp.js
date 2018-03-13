@@ -20,8 +20,25 @@ class SignUp extends React.Component {
         }
       }
     })
-    .then(function(response) {
+    .then(response => {
       sessionStorage.setItem('jwt', response.data.jwt);
+    })
+    .then(token => {
+      const AUTH_STRING = 'Bearer '.concat(sessionStorage.getItem('jwt'));
+      axios({
+        method: "get",
+        headers: { "Content-Type": "application/json", "Authorization": AUTH_STRING },
+        url: "api/my_user"
+      })
+      .then(userResponse => {
+        sessionStorage.setItem('username', userResponse.data.username);
+        sessionStorage.setItem('userId', userResponse.data.id);
+        sessionStorage.setItem('email', userResponse.data.email);
+        console.log(sessionStorage);
+      })
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 
