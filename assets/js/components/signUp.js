@@ -2,11 +2,19 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import axios from "axios";
 
 class SignUp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      fireRedirect: false
+    };
+  }
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -20,40 +28,45 @@ class SignUp extends React.Component {
         }
       }
     })
-    .then(response => {
-      sessionStorage.setItem('jwt', response.data.jwt);
-    })
-    .then(token => {
-      const AUTH_STRING = 'Bearer '.concat(sessionStorage.getItem('jwt'));
-      axios({
-        method: "get",
-        headers: { "Content-Type": "application/json", "Authorization": AUTH_STRING },
-        url: "api/my_user"
+      .then(response => {
+        sessionStorage.setItem("jwt", response.data.jwt);
       })
-      .then(userResponse => {
-        sessionStorage.setItem('username', userResponse.data.username);
-        sessionStorage.setItem('userId', userResponse.data.id);
-        sessionStorage.setItem('email', userResponse.data.email);
-        sessionStorage.removeItem('signupFailed');
+      .then(token => {
+        const AUTH_STRING = "Bearer ".concat(sessionStorage.getItem("jwt"));
+        axios({
+          method: "get",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: AUTH_STRING
+          },
+          url: "api/my_user"
+        }).then(userResponse => {
+          sessionStorage.setItem("username", userResponse.data.username);
+          sessionStorage.setItem("userId", userResponse.data.id);
+          sessionStorage.setItem("email", userResponse.data.email);
+          sessionStorage.removeItem("signupFailed");
+          this.forceUpdate();
+        });
+      })
+      .catch(error => {
+        sessionStorage.setItem("signupFailed", "true");
+        console.log(error);
         this.forceUpdate();
-      })
-    })
-    .catch(error => {
-      sessionStorage.setItem('signupFailed', 'true');
-      console.log(error);
-      this.forceUpdate();
-    });
+      });
   }
 
   render() {
+    const { from } = this.props.location.state || "/";
+    const { fireRedirect } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>
-        {sessionStorage.getItem('signupFailed') &&
+        {sessionStorage.getItem("signupFailed") && (
           <h4>
-            Unable to register a new account. Please check your email address is correct and your password is over 4 characters long!
+            Unable to register a new account. Please check your email address is
+            correct and your password is over 4 characters long!
           </h4>
-        }
+        )}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
@@ -89,6 +102,7 @@ class SignUp extends React.Component {
           </div>
           <button type="submit">Sign Up</button>
         </form>
+        {fireRedirect && <Redirect to={from || "/"} />}
         <Link to="/">Home</Link>
       </div>
     );
