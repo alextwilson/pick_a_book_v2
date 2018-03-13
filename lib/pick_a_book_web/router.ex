@@ -33,6 +33,7 @@ defmodule PickABookWeb.Router do
 
     post "/book/new", BookController, :create
     resources "/books", BookController, except: [:new, :edit]
+
   end
 
   scope "/api", PickABookWeb do
