@@ -14,7 +14,7 @@ class Home extends React.Component {
           </h3>
         }
         <Link to="/books">All books |</Link>
-        <Link to="/books/new"> Add a book |</Link>
+        <Link to="/book/new"> Add a book |</Link>
         <Link to="/signup"> Sign Up |</Link>
         <Link to="/login"> Log In</Link>
       </div>
