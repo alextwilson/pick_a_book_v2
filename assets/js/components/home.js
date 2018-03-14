@@ -2,14 +2,17 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styled from "styled-components";
+import Title from "./styled/title";
+// import Background from "./styled/background";
 
 class Home extends React.Component {
   render() {
     return (
       <div>
-        <h3>Welcome to PickABook!</h3>
+        <Title>Welcome to PickABook!</Title>
         {sessionStorage.getItem("username") && (
-          <h4>Hello {sessionStorage.getItem("username")}!</h4>
+          <Title primary>Hello {sessionStorage.getItem("username")}!</Title>
         )}
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis arcu sit amet dui cursus, vel accumsan nulla varius. Donec eleifend rhoncus odio, nec rhoncus felis. Phasellus tempor imperdiet nisl, ac mattis arcu efficitur a. Duis porta mauris eget lorem sodales malesuada. Maecenas tempor, dolor a pulvinar vehicula, quam nisl venenatis elit, at tempor turpis ligula eu odio. Donec nisl magna, ornare bibendum maximus vitae, iaculis vel tortor. Etiam lorem magna, ullamcorper etconvallis nec, tempor id odio.

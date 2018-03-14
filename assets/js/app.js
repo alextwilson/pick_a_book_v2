@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 import Book from "./components/book";
 import Books from "./components/books";
 import Home from "./components/home";
@@ -11,6 +12,7 @@ import Navigation from "./components/navigation";
 import NewBook from "./components/newBook";
 import SignUp from "./components/signUp";
 import LogOut from "./components/logOut";
+
 
 class Main extends React.Component {
   render() {

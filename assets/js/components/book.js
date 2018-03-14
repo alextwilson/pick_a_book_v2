@@ -26,7 +26,19 @@ class Book extends React.Component {
       <div>
         <h3>{this.state.book.title}</h3>
         <p>
-          <img id="image" height="225" width="175" src={this.state.book.imageurl} />
+          <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
+          <Link to="/book/new">Add a book</Link>
+        </p>
+        <p>
+          <img
+            id="image"
+            height="400"
+            width="325"
+            src={this.state.book.imageurl}
+          />
+        </p>
+        <p>
+          <strong>Title:</strong> {this.state.book.title}
         </p>
         <p>
           <strong>Author:</strong> {this.state.book.author}
@@ -35,7 +47,8 @@ class Book extends React.Component {
           <strong>Genre:</strong> {this.state.book.genre}
         </p>
         <p>
-          <strong>Description:</strong> {this.state.book.description}
+          <strong>Description:</strong>
+          <p>{this.state.book.description}</p>
         </p>
       </div>
     );
