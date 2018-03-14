@@ -7186,7 +7186,7 @@ button.close {
 }
 
 /* Space out content a bit */
-@import url("https://fonts.googleapis.com/css?family=Lato|Rammetto+One");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 body,
 form,
@@ -7210,7 +7210,7 @@ body {
 
 h1 {
   font-weight: 900;
-  font-family: "Rammetto One", cursive;
+  font-family: "Lato", sans-serif;
 }
 
 /* Phoenix flash messages */
