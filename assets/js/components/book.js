@@ -26,7 +26,7 @@ class Book extends React.Component {
       <div>
         <h3>{this.state.book.title}</h3>
         <p>
-          <img id="image" height="100" width="80" src={this.state.book.imageurl} />
+          <img id="image" height="225" width="175" src={this.state.book.imageurl} />
         </p>
         <p>
           <strong>Author:</strong> {this.state.book.author}
