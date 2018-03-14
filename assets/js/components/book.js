@@ -34,9 +34,6 @@ class Book extends React.Component {
           />
         </p>
         <p>
-          <strong>Title:</strong> {this.state.book.title}
-        </p>
-        <p>
           <strong>Author:</strong> {this.state.book.author}
         </p>
         <p>
