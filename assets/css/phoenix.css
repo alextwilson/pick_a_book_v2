@@ -7199,7 +7199,7 @@ table {
 }
 
 body {
-  background: url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-0.3.5&s=82cdc66dafb1d5bce3edd2347911e1bf&auto=format&fit=crop&w=1500&q=80");
+  background: url("https://i.imgur.com/JmLwo0U.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100% top;
@@ -7211,6 +7211,21 @@ body {
 h1 {
   font-weight: 900;
   font-family: "Lato", sans-serif;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none !important;
+  border: 1px solid #66023c;
+  box-shadow: 0 0 10px #66023c;
 }
 
 /* Phoenix flash messages */
