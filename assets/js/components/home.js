@@ -11,12 +11,8 @@ class Home extends React.Component {
         {sessionStorage.getItem("username") && (
           <h4>Hello {sessionStorage.getItem("username")}!</h4>
         )}
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis arcu sit amet dui cursus, vel accumsan nulla varius. Donec eleifend rhoncus odio, nec rhoncus felis. Phasellus tempor imperdiet nisl, ac mattis arcu efficitur a. Duis porta mauris eget lorem sodales malesuada. Maecenas tempor, dolor a pulvinar vehicula, quam nisl venenatis elit, at tempor turpis ligula eu odio. Donec nisl magna, ornare bibendum maximus vitae, iaculis vel tortor. Etiam lorem magna, ullamcorper etconvallis nec, tempor id odio.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta libero sed volutpat molestie. Duis bibendum tristique dolor at venenatis. Mauris at faucibus sem, eu sodales libero. Nam metus mi, lobortis vitae nunc nec, bibendum lobortis velit. Vivamus at neque quam. Ut lacus mauris, euismod vitae volutpat vel, sagittis vel orci. Sed fringilla enim id egestas maximus. Aliquam erat volutpat.
-        </p>
+        <h4>Rather than leave your books on the shelf never to be opened again, or worse, throw them away, try swapping them using PickABook!</h4><br/>
+        <p>Join today and swap books with other members of our community. PickABook helps you giving away books you no longer need in exchange for books you really want.</p>
       </div>
     );
   }
