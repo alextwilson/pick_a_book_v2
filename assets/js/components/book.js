@@ -24,10 +24,7 @@ class Book extends React.Component {
   render() {
     return (
       <div>
-        <h3>Pending book title</h3>
-        <p>
-          <strong>Title:</strong> {this.state.book.title}
-        </p>
+        <h3>{this.state.book.title}</h3>
         <p>
           <strong>Author:</strong> {this.state.book.author}
         </p>
