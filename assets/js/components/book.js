@@ -24,6 +24,7 @@ class Book extends React.Component {
   render() {
     return (
       <div>
+        <h3>{this.state.book.title}</h3>
         <p>
           <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
           <Link to="/book/new">Add a book</Link>
@@ -32,7 +33,7 @@ class Book extends React.Component {
           <img
             id="image"
             height="400"
-            width="300"
+            width="325"
             src={this.state.book.imageurl}
           />
         </p>
