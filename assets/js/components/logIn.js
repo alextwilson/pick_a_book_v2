@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { BrowserRouter, Redirect } from "react-router-dom";
 import axios from "axios";
+import Button from "./styled/button";
 
 class LogIn extends React.Component {
   constructor() {
@@ -75,7 +76,7 @@ class LogIn extends React.Component {
               required={true}
             />
           </div>
-          <button type="submit">Log In</button>
+          <Button type="submit">Log In</Button>
         </form>
         {fireRedirect && <Redirect to={from || "/"} />}
       </div>
