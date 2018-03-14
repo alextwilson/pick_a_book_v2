@@ -26,10 +26,6 @@ class Book extends React.Component {
       <div>
         <h3>{this.state.book.title}</h3>
         <p>
-          <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
-          <Link to="/book/new">Add a book</Link>
-        </p>
-        <p>
           <img
             id="image"
             height="400"
