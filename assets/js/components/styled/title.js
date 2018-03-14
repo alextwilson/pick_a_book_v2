@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  color: ${props => (props.primary ? "magenta" : "black")};
+  color: ${props => (props.primary ? "#595959" : "black")};
 `;
 
 Title.displayName = "Title";
