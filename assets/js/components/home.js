@@ -5,17 +5,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Home extends React.Component {
   render() {
-    console.log(sessionStorage);
     return (
       <div>
-        <h1>Welcome to PickABook!</h1>
+        <h3>Welcome to PickABook!</h3>
         {sessionStorage.getItem("username") && (
           <h3>Hello {sessionStorage.getItem("username")}!</h3>
         )}
-        <Link to="/books">All books |</Link>
-        <Link to="/book/new"> Add a book |</Link>
-        <Link to="/signup"> Sign Up |</Link>
-        <Link to="/login"> Log In</Link>
       </div>
     );
   }
