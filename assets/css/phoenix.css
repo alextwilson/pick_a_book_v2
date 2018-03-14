@@ -7223,8 +7223,22 @@ input[type="password"] {
   border-radius: 5px;
 }
 
+textarea {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
 input[type="text"]:focus,
 input[type="password"]:focus {
+  outline: none !important;
+  border: 1px solid #66023c;
+  box-shadow: 0 0 10px #66023c;
+}
+
+textarea:focus {
   outline: none !important;
   border: 1px solid #66023c;
   box-shadow: 0 0 10px #66023c;
