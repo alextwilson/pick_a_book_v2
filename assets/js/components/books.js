@@ -55,6 +55,8 @@ class Books extends React.Component {
     return (
       <div>
         <h3>All books</h3>
+        <h4>You have {arr.length} books available!</h4>
+        <h3></h3>
         {posts}
       </div>
     );
