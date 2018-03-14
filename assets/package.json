@@ -1,6 +1,9 @@
 {
   "repository": {},
   "license": "MIT",
+  "jest": {
+    "setupTestFrameworkScriptFile": "mock-local-storage"
+  },
   "scripts": {
     "test": "jest"
   },
@@ -27,6 +30,7 @@
     "clean-css-brunch": "2.10.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "mock-local-storage": "^1.0.5",
     "uglify-js-brunch": "2.10.0"
   }
 }

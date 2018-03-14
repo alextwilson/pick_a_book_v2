@@ -8,18 +8,22 @@ class Navigation extends React.Component {
     return (
       <div>
         <h1>PickABook</h1>
-        <Link to="/">Home |</Link>
-        <Link to="/books"> All books |</Link>
-        <Link to="/book/new"> Add a book |</Link>
-        {!sessionStorage.getItem("jwt") && (
-          <Link to="/signup"> Sign up |</Link>
-        )}
-        {!sessionStorage.getItem("jwt") && (
-          <Link to="/login"> Log in</Link>
-        )}
-        {sessionStorage.getItem("jwt") && (
-          <Link to="/logout"> Log out</Link>
-        )}
+        <Router>
+          <div>
+            <Link to="/">Home |</Link>
+            <Link to="/books"> All books |</Link>
+            <Link to="/book/new"> Add a book |</Link>
+            {!sessionStorage.getItem("jwt") && (
+              <Link to="/signup"> Sign up |</Link>
+            )}
+            {!sessionStorage.getItem("jwt") && (
+              <Link to="/login"> Log in</Link>
+            )}
+            {sessionStorage.getItem("jwt") && (
+              <Link to="/logout"> Log out</Link>
+            )}
+          </div>
+        </Router>
       </div>
     );
   }
