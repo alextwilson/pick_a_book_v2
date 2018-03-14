@@ -47,7 +47,7 @@ class Book extends React.Component {
         </p>
         <p>
           <strong>Description:</strong>
-          <p style="text-align:justify">{this.state.book.description}</p>
+          <p>{this.state.book.description}</p>
         </p>
       </div>
     );

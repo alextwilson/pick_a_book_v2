@@ -4,10 +4,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import Title from "./styled/title";
-
-// const Title = styled.h1`
-//   color: ${props => (props.primary ? "pink" : "black")};
-// `;
+// import Background from "./styled/background";
 
 class Home extends React.Component {
   render() {
