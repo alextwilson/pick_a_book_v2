@@ -7,6 +7,7 @@ import Book from "./components/book";
 import Books from "./components/books";
 import Home from "./components/home";
 import LogIn from "./components/logIn";
+import Navigation from "./components/navigation";
 import NewBook from "./components/newBook";
 import SignUp from "./components/signUp";
 
@@ -15,6 +16,7 @@ class Main extends React.Component {
     return (
       <Router>
         <div>
+          <Route path="/" component={Navigation} />
           <Route exact path="/" component={Home} />
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={Book} />
