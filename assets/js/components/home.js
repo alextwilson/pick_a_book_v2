@@ -2,15 +2,20 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styled from "styled-components";
+import Title from "./styled/title";
+
+// const Title = styled.h1`
+//   color: ${props => (props.primary ? "pink" : "black")};
+// `;
 
 class Home extends React.Component {
   render() {
-    console.log(sessionStorage);
     return (
       <div>
-        <h1>Welcome to PickABook!</h1>
+        <Title>Welcome to PickABook!</Title>
         {sessionStorage.getItem("username") && (
-          <h3>Hello {sessionStorage.getItem("username")}!</h3>
+          <Title primary>Hello {sessionStorage.getItem("username")}!</Title>
         )}
         <Link to="/books">All books |</Link>
         <Link to="/book/new"> Add a book |</Link>
