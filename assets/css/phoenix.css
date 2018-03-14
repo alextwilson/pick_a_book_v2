@@ -7250,10 +7250,12 @@ textarea:focus {
 
 blockquote {
   /* background: #e6eae9; */
+  font-style: italic;
   color: #595959;
-  border-left: 10px solid #aeb4b0;
+  border-left: 8px solid #66023c;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
+  /* border-radius: 5px; */
 }
 
 blockquote p {
