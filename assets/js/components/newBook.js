@@ -45,7 +45,7 @@ class NewBook extends React.Component {
     const { fireRedirect } = this.state;
     return (
       <div>
-        <h1>Add a book</h1>
+        <h3>Add a book</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div className="field">
             <input
@@ -90,7 +90,6 @@ class NewBook extends React.Component {
           <button type="submit">Add book </button>
         </form>
         {fireRedirect && <Redirect to={from || "/books/"} />}
-        <Link to="/">Home</Link>
       </div>
     );
   }

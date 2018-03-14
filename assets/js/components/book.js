@@ -24,12 +24,9 @@ class Book extends React.Component {
   render() {
     return (
       <div>
+        <h3>{this.state.book.title}</h3>
         <p>
-          <Link to="/">Home</Link> | <Link to="/books">All books</Link> |{" "}
-          <Link to="/book/new">Add a book</Link>
-        </p>
-        <p>
-          <strong>Title:</strong> {this.state.book.title}
+          <img id="image" height="100" width="80" src={this.state.book.imageurl} />
         </p>
         <p>
           <strong>Author:</strong> {this.state.book.author}
@@ -39,9 +36,6 @@ class Book extends React.Component {
         </p>
         <p>
           <strong>Description:</strong> {this.state.book.description}
-        </p>
-        <p>
-          <img id="image" height="80" width="80" src={this.state.book.imageurl} />
         </p>
       </div>
     );

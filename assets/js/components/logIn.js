@@ -54,7 +54,7 @@ class LogIn extends React.Component {
     const { fireRedirect } = this.state;
     return (
       <div>
-        <h1>Log In</h1>
+        <h3>Log in</h3>
         {sessionStorage.getItem("loginFailed") && (
           <h4>Username or password is incorrect!</h4>
         )}
@@ -78,7 +78,6 @@ class LogIn extends React.Component {
           <button type="submit">Log In</button>
         </form>
         {fireRedirect && <Redirect to={from || "/"} />}
-        <Link to="/">Home</Link>
       </div>
     );
   }

@@ -58,7 +58,7 @@ class SignUp extends React.Component {
     const { fireRedirect } = this.state;
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h3>Sign up</h3>
         {sessionStorage.getItem("signupFailed") && (
           <h4>
             Unable to register a new account. Please check your email address is
@@ -101,7 +101,6 @@ class SignUp extends React.Component {
           <button type="submit">Sign Up</button>
         </form>
         {fireRedirect && <Redirect to={from || "/"} />}
-        <Link to="/">Home</Link>
       </div>
     );
   }
