@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { BrowserRouter, Redirect} from "react-router-dom";
 import axios from "axios";
+import Button from "./styled/button";
 
 class NewBook extends React.Component {
   constructor() {
@@ -87,7 +88,7 @@ class NewBook extends React.Component {
               required={true}
               />
           </div>
-          <button type="submit">Add book </button>
+          <Button type="submit">Add book </Button>
         </form>
         {fireRedirect && <Redirect to={from || "/books/"} />}
       </div>
