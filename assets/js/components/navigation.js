@@ -12,13 +12,13 @@ class Navigation extends React.Component {
         <Link to="/books"> All books |</Link>
         <Link to="/book/new"> Add a book |</Link>
         {!sessionStorage.getItem("jwt") && (
-          <Link to="/signup"> Sign Up |</Link>
+          <Link to="/signup"> Sign up |</Link>
         )}
         {!sessionStorage.getItem("jwt") && (
-          <Link to="/login"> Log In</Link>
+          <Link to="/login"> Log in</Link>
         )}
         {sessionStorage.getItem("jwt") && (
-          <Link to="/logout"> Log Out</Link>
+          <Link to="/logout"> Log out</Link>
         )}
       </div>
     );
