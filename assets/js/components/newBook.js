@@ -18,7 +18,6 @@ class NewBook extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ fireRedirect: true });
     axios({
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -32,6 +31,12 @@ class NewBook extends React.Component {
           imageurl: this.refs.imageurl.value
         }
       }
+    })
+    .then(redirect => {
+      this.setState({ fireRedirect: true });
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 
