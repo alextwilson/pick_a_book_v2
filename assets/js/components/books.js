@@ -13,7 +13,7 @@ class BookListing extends React.Component {
             <div className="media-content">
               <p>
                 <img id="image" height="100" width="85" src={this.props.imageurl} />
-                <strong className="title"> {this.props.title}</strong>
+                <strong className="title">  {this.props.title}</strong>
                 <i className="author"> By {this.props.author}</i> |{" "}
                 <Link to={`/books/${this.props.id}`}>Show</Link>
               </p>
