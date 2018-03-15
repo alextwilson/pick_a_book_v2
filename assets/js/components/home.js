@@ -25,7 +25,9 @@ class Home extends React.Component {
         </p>
         <br />
         <h4>Interesting facts about books:</h4>
-        <blockquote>There are over 129 million books in existence.</blockquote>
+        <blockquote>
+          There are over <strong>129 million books</strong> in existence.
+        </blockquote>
         <blockquote>
           The first book ever written using a typewriter was The Adventures of
           Tom Sawyer.
@@ -35,7 +37,8 @@ class Home extends React.Component {
           stealing.
         </blockquote>
         <blockquote>
-          An estimated 755,755 new books are published every year.
+          An estimated <strong>755,755</strong> new books are published every
+          year.
         </blockquote>
         <blockquote>
           The Japanese word ‘tsundoku’ apparently means “buying lots of books
