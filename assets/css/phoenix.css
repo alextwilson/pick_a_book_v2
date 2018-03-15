@@ -7230,6 +7230,41 @@ input[type="password"]:focus {
   box-shadow: 0 0 10px #66023c;
 }
 
+.NavBar {
+  background: #e6eae9;
+  width: 100%;
+  margin-top: 0;
+  border-radius: 5px;
+  padding: 12px 20px;
+}
+
+.NavBar a {
+  color: #66023c;
+  font-size: 20px;
+}
+
+.NavBar a:hover {
+  color: #e6eae9;
+  background: #66023c;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+Button:hover {
+  color: #e6eae9;
+  background: #66023c;
+}
+
+a {
+  color: #66023c;
+}
+
+a:hover {
+  color: #420127;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 /* Phoenix flash messages */
 .alert:empty {
   display: none;
