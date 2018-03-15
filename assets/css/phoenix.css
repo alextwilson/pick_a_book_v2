@@ -7250,13 +7250,15 @@ textarea:focus {
 }
 
 blockquote {
-  display: block;
+  /* display: block;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 40px;
-  margin-right: 40px;
+  margin-right: 40px; */
   font-style: italic;
   font-size: 16px;
+  border-left: 2px solid #66023c;
+  padding-left: 8px;
 }
 
 .NavBar {
