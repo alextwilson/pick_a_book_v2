@@ -7214,6 +7214,11 @@ h1 {
   font-family: "Lato", sans-serif;
 }
 
+h4 {
+  font-family: "Lato", sans-serif;
+  line-height: 1.6;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 50%;
@@ -7228,6 +7233,51 @@ input[type="password"]:focus {
   outline: none !important;
   border: 1px solid #66023c;
   box-shadow: 0 0 10px #66023c;
+}
+
+textarea {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #66023c;
+  box-shadow: 0 0 10px #66023c;
+}
+
+blockquote {
+  /* display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px; */
+  font-style: italic;
+  font-size: 16px;
+  border-left: 2px solid #66023c;
+  padding-left: 8px;
+}
+.second {
+  /* display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px; */
+  text-align: right;
+  font-style: italic;
+  font-size: 16px;
+  border-right: 2px solid #66023c;
+  padding-right: 8px;
+  border-left: none;
+}
+
+.facts {
+  text-align: center;
+  font-variant: small-caps;
+  letter-spacing: 2px;
 }
 
 .NavBar {

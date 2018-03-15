@@ -24,9 +24,13 @@ class Home extends React.Component {
           exchange for books you really want.
         </p>
         <br />
-        <h4>Interesting facts about books:</h4>
-        <blockquote>There are over 129 million books in existence.</blockquote>
+        <h4 className="facts">
+          <strong>Interesting facts about books:</strong>
+        </h4>
         <blockquote>
+          There are over <strong>129 million books</strong> in existence.
+        </blockquote>
+        <blockquote className="second">
           The first book ever written using a typewriter was The Adventures of
           Tom Sawyer.
         </blockquote>
@@ -34,8 +38,9 @@ class Home extends React.Component {
           Books used to be chained to shelves in libraries, in order to prevent
           stealing.
         </blockquote>
-        <blockquote>
-          An estimated 755,755 new books are published every year.
+        <blockquote className="second">
+          An estimated <strong>755,755</strong> new books are published every
+          year.
         </blockquote>
         <blockquote>
           The Japanese word ‘tsundoku’ apparently means “buying lots of books
