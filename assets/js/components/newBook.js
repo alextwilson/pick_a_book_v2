@@ -73,17 +73,17 @@ class NewBook extends React.Component {
             />
           </div>
           <div className="field">
-            <textarea
-              rows="5"
-              cols="23"
+            <input
+              id="textbox"
               ref="description"
               type="text"
               placeholder="Description"
               required={true}
-            textarea></textarea>
+            />
           </div>
           <div className="field">
             <input
+              size="15"
               ref="imageurl"
               type="text"
               placeholder="Image URL"
