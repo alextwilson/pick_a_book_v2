@@ -7214,20 +7214,8 @@ h1 {
   font-family: "Lato", sans-serif;
 }
 
-h4 {
-  line-height: 1.8;
-}
-
 input[type="text"],
 input[type="password"] {
-  width: 50%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-textarea {
   width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -7241,25 +7229,6 @@ input[type="password"]:focus {
   border: 1px solid #66023c;
   box-shadow: 0 0 10px #66023c;
 }
-
-textarea:focus {
-  outline: none !important;
-  border: 1px solid #66023c;
-  box-shadow: 0 0 10px #66023c;
-}
-
-blockquote {
-  /* background: #e6eae9; */
-  font-style: italic;
-  color: #595959;
-  border-left: 8px solid #66023c;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  /* border-radius: 5px; */
-}
-
-blockquote p {
-  padding: 10px;
 
 .NavBar {
   background: #e6eae9;
