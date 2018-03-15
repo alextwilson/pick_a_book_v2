@@ -42,7 +42,6 @@ class NewBook extends React.Component {
   }
 
   render() {
-    const { from } = this.props.location.state || "/";
     const { fireRedirect } = this.state;
     return (
       <div>
@@ -92,7 +91,7 @@ class NewBook extends React.Component {
           </div>
           <Button type="submit">Add book </Button>
         </form>
-        {fireRedirect && <Redirect to={from || "/books/"} />}
+        {fireRedirect && <Redirect to="/books/" />}
       </div>
     );
   }
