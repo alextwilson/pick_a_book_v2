@@ -7249,6 +7249,16 @@ textarea:focus {
   box-shadow: 0 0 10px #66023c;
 }
 
+blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-style: italic;
+  font-size: 16px;
+}
+
 .NavBar {
   background: #e6eae9;
   width: 100%;
