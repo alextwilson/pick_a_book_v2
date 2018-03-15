@@ -24,7 +24,9 @@ class Home extends React.Component {
           exchange for books you really want.
         </p>
         <br />
-        <h4>Interesting facts about books:</h4>
+        <h4>
+          <strong>Interesting facts about books:</strong>
+        </h4>
         <blockquote>
           There are over <strong>129 million books</strong> in existence.
         </blockquote>
