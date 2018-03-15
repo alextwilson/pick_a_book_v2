@@ -17,7 +17,7 @@ describe('NewBook', () => {
 
     it('has a form with four fields', () => {
       const page = mount(<NewBook/>);
-      expect(page.find('div.field').length).toEqual(4);
+      expect(page.find('div.field').length).toEqual(5);
     });
 
     it('calls handelSubmit', () => {

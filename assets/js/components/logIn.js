@@ -51,7 +51,6 @@ class LogIn extends React.Component {
   }
 
   render() {
-    const { from } = this.props.location.state || "/";
     const { fireRedirect } = this.state;
     return (
       <div>
@@ -78,7 +77,7 @@ class LogIn extends React.Component {
           </div>
           <Button type="submit">Log In</Button>
         </form>
-        {fireRedirect && <Redirect to={from || "/"} />}
+        {fireRedirect && <Redirect to="/" />}
       </div>
     );
   }

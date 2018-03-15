@@ -18,6 +18,7 @@ class Home extends React.Component {
           worse, to be thrown away, try swapping them using PickABook!
         </h4>
         <br />
+            
         <h4>
           Join today and swap books with other members of our community.
           PickABook helps you by giving away books you no longer need in
@@ -26,8 +27,9 @@ class Home extends React.Component {
         <br />
         <h4>Interesting facts about books:</h4>
         <blockquote>
-          There are over <strong>129 million books </strong>in existence.
+          There are over <strong>129 million books. </strong>in existence.
         </blockquote>
+
         <blockquote>
           The first book ever written using a typewriter was The Adventures of
           Tom Sawyer.
@@ -37,12 +39,13 @@ class Home extends React.Component {
           stealing.
         </blockquote>
         <blockquote>
-          An estimated <strong>755</strong>, 755 new books are published every
+          An estimated <strong>755,000</strong> new books are published every
           year.
         </blockquote>
         <blockquote>
           The Japanese word <em>‘tsundoku’</em> apparently means “buying lots of
           books and then never getting around to reading them.
+          
         </blockquote>
       </div>
     );

@@ -13,14 +13,4 @@ describe('Home', () => {
     const page = mount(<Home/>);
     expect(page.text()).toMatch('Welcome to PickABook!');
   });
-
-  it('Has a link to books', () => {
-    const page = mount(<Home/>);
-    expect(page.find({to: '/books'}).length).toEqual(1)
-  });
-
-  it('Has a link to new book', () => {
-    const page = mount(<Home/>);
-    expect(page.find({to: '/books/new'}).length).toEqual(1)
-  });
 });

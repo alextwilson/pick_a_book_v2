@@ -4,8 +4,8 @@ defmodule PickABookWeb.BookControllerTest do
   alias PickABook.Books
   alias PickABook.Books.Book
 
-  @create_attrs %{author: "some author", description: "some description", genre: "some genre", title: "some title"}
-  @update_attrs %{author: "some updated author", description: "some updated description", genre: "some updated genre", title: "some updated title"}
+  @create_attrs %{author: "some author", description: "some description", genre: "some genre", title: "some title", imageurl: "some imageurl"}
+  @update_attrs %{author: "some updated author", description: "some updated description", genre: "some updated genre", title: "some updated title", imageurl: "some updated imageurl"}
   @invalid_attrs %{author: nil, description: nil, genre: nil, title: nil}
 
   def fixture(:book) do

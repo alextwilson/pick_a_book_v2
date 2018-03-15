@@ -13,7 +13,6 @@ import NewBook from "./components/newBook";
 import SignUp from "./components/signUp";
 import LogOut from "./components/logOut";
 
-
 class Main extends React.Component {
   render() {
     return (

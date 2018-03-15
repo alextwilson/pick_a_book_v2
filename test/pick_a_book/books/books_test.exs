@@ -6,8 +6,8 @@ defmodule PickABook.BooksTest do
   describe "books" do
     alias PickABook.Books.Book
 
-    @valid_attrs %{author: "some author", description: "some description", genre: "some genre", title: "some title"}
-    @update_attrs %{author: "some updated author", description: "some updated description", genre: "some updated genre", title: "some updated title"}
+    @valid_attrs %{author: "some author", description: "some description", genre: "some genre", title: "some title", imageurl: "some image"}
+    @update_attrs %{author: "some updated author", description: "some updated description", genre: "some updated genre", title: "some updated title", imageurl: "some updated imageurl"}
     @invalid_attrs %{author: nil, description: nil, genre: nil, title: nil}
 
     def book_fixture(attrs \\ %{}) do
