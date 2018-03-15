@@ -30,7 +30,7 @@ class Home extends React.Component {
         <blockquote>
           There are over <strong>129 million books</strong> in existence.
         </blockquote>
-        <blockquote>
+        <blockquote className="second">
           The first book ever written using a typewriter was The Adventures of
           Tom Sawyer.
         </blockquote>
@@ -38,7 +38,7 @@ class Home extends React.Component {
           Books used to be chained to shelves in libraries, in order to prevent
           stealing.
         </blockquote>
-        <blockquote>
+        <blockquote className="second">
           An estimated <strong>755,755</strong> new books are published every
           year.
         </blockquote>

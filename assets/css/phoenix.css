@@ -7260,6 +7260,19 @@ blockquote {
   border-left: 2px solid #66023c;
   padding-left: 8px;
 }
+.second {
+  /* display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px; */
+  text-align: right;
+  font-style: italic;
+  font-size: 16px;
+  border-right: 2px solid #66023c;
+  padding-right: 8px;
+  border-left: none;
+}
 
 .NavBar {
   background: #e6eae9;
