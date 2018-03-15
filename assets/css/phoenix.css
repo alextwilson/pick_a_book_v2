@@ -7214,6 +7214,11 @@ h1 {
   font-family: "Lato", sans-serif;
 }
 
+h4 {
+  font-family: "Lato", sans-serif;
+  line-height: 1.6;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 50%;
