@@ -7277,6 +7277,7 @@ blockquote {
 .facts {
   text-align: center;
   font-variant: small-caps;
+  letter-spacing: 2px;
 }
 
 .NavBar {
