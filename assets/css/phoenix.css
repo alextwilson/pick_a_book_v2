@@ -7274,6 +7274,11 @@ blockquote {
   border-left: none;
 }
 
+.facts {
+  text-align: center;
+  font-variant: small-caps;
+}
+
 .NavBar {
   background: #e6eae9;
   width: 100%;

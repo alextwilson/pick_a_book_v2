@@ -24,7 +24,7 @@ class Home extends React.Component {
           exchange for books you really want.
         </p>
         <br />
-        <h4>
+        <h4 className="facts">
           <strong>Interesting facts about books:</strong>
         </h4>
         <blockquote>
